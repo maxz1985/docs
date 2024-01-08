@@ -51,9 +51,9 @@ Create a file `sudo vi 10-static-eth0.network` with the following content:
 Name=eth0
 
 [Network]
-Address=10.74.8.22/24
-Gateway=10.74.8.1
-DNS=10.74.8.1
+Address=192.168.1.2/24
+Gateway=192.168.1.1
+DNS=192.168.1.1
 ```
 
 !**NB** - before proceeding make sure you change ownership of `10-static-eth0.network` file to `systemd-network`
