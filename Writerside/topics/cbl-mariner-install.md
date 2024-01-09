@@ -46,7 +46,7 @@ On a fresh mariner install you would see a file `99-dhcp-en.network` file there.
 
 Create a file `sudo vi 10-static-eth0.network` with the following content:
 
-```properties
+```Ini
 [Match]
 Name=eth0
 
@@ -58,7 +58,7 @@ DNS=192.168.1.1
 
 !**NB** - before proceeding make sure you change ownership of `10-static-eth0.network` file to `systemd-network`
 
-```properties
+```Shell
 sudo chown systemd-network:systemd-network 10-static-eth0.network
 ```
 
