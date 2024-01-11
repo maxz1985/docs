@@ -1,2 +1,3 @@
 # Docs
-Documents and other readthedocs content
+Public documentation developed using JetBrains Writerside.
+
