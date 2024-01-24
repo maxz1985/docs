@@ -9,3 +9,11 @@
         <code-block lang="shell">stat -c '%a %n' *</code-block>
     </tab>
 </tabs>
+
+## TMUX quick reference
+
+| Action            | Command        |
+|-------------------|----------------|
+| List sessions     | `sudo tmux ls` |
+| Attach to session | `sudo tmux a`  |
+| Detach session    | `CTRL-B; D`    |
