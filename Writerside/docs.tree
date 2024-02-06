@@ -5,6 +5,7 @@
 <instance-profile id="docs" name="Documentation"
                   start-page="bashExtractFileNameExt.md">
 
+    <toc-element topic="Rocky8-KVM-GPU-Passthrough.md"/>
     <toc-element topic="bashExtractFileNameExt.md"/>
     <toc-element topic="cbl-mariner-install.md"/>
 </instance-profile>
