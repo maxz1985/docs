@@ -1,5 +1,6 @@
 # Rocky8 KVM GPU Pass through
 
+Unless NVidia GPU supports vGPU, only one VM at a time can use the passthrough configuration
 ## Enable IOMMU
 ```Shell
 sudo vim /etc/default/grub
