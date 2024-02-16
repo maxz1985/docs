@@ -1,7 +1,8 @@
 <buildprofiles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/build-profiles.xsd">
     <variables>
-        <header-logo>my-logo.png</header-logo>
+        <custom-favicons>mz-icon.ico</custom-favicons>
+        <header-logo>mz-logo.png</header-logo>
         <product-web-url>https://mzelenov.com</product-web-url>
     </variables>
 </buildprofiles>
