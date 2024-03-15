@@ -6,7 +6,7 @@
 
 * base is PhotonOS, package manager is `yum`
 
-## Enable paswordless sudo (console)
+## Enable password-less sudo (console)
 
 `sudo visudo`
 
@@ -34,7 +34,7 @@
 ## Insert public key into authorized_keys (ssh)
 
 * copy public key into `authorized_keys` in `~/.ssh` directory on mariner (`sudo vi ~/.ssh/authorized_keys`)
-* log off ssh session and log in again, it should NOT ask for password
+* log off ssh session and log in again, it should NOT ask for a password
 
 ## Set static IP address
 
@@ -42,7 +42,8 @@ CBL-mariner is based on PhotonOS+redHat, setting static IP procedure is the same
 
 The interface config files are in `/etc/systemd/network`
 
-On a fresh mariner install you would see a file `99-dhcp-en.network` file there. This file configures all `e*` interfaces for DHCP by default.
+On a fresh mariner installation you would see a file `99-dhcp-en.network` file there.
+This file configures all `e*` interfaces for DHCP by default.
 
 Create a file `sudo vi 10-static-eth0.network` with the following content:
 
@@ -56,7 +57,7 @@ Gateway=192.168.1.1
 DNS=192.168.1.1
 ```
 
-!**NB** - before proceeding make sure you change ownership of `10-static-eth0.network` file to `systemd-network`
+!**NB**—before proceeding make sure you change ownership of `10-static-eth0.network` file to `systemd-network`
 
 ```Shell
 sudo chown systemd-network:systemd-network 10-static-eth0.network

@@ -1,6 +1,6 @@
-# Rocky8 KVM GPU Pass through
+# Rocky8 KVM with GPU Pass through
 
-Unless NVidia GPU supports vGPU, only one VM at a time can use the passthrough configuration.\
+Unless NVidia GPU supports vGPU, only one VM at a time can use the pass-through configuration.\
 For vGPU compatible NVidia Cards see [](https://docs.nvidia.com/grid/gpus-supported-by-vgpu.html)
 ## Enable IOMMU
 ```Shell
@@ -34,8 +34,8 @@ sudo lspci -nn | grep -i nvidia
 03:00.1 Audio device [0403]: NVIDIA Corporation GF106 High Definition Audio Controller [10de:0be9] (rev a1)
 ```
 > NOTE `device ids` and `vfio-pci ids`:\
-> GPU - `03:00.0` and `10de:0dd8`\
-> GPU Audio - `03:00.1` and `10de:0be9`
+> GPU—`03:00.0` and `10de:0dd8`\
+> GPU Audio—`03:00.1` and `10de:0be9`
 
 Create new `vfio.conf` file with `vfio-pci ids`
 ```Shell
@@ -80,7 +80,7 @@ sudo dmesg | grep -E "DMAR|IOMMU"
 [    1.349983] DMAR: dmar1: Using Queued invalidation
 [    1.352113] DMAR: Intel(R) Virtualization Technology for Directed I/O
 ```
->NOTE `[    0.000000] DMAR: IOMMU enabled` - this line should be there
+>NOTE `[ 0.000000] DMAR: IOMMU enabled`—this line should be there
 
 Confirm vfio enabled
 ```Shell
