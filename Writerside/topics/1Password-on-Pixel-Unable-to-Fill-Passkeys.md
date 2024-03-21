@@ -23,4 +23,4 @@ Search for `Android Credential Management for passkeys` setting.
 
 Set the value to `Enabled for 3rd party passkeys`
 
-![Screenshot_20240321-163607.png](1password-on-pixel-unable-to-fill-passkeys-02.png)
+![Screenshot_20240321-163607.png](1password-on-pixel-unable-to-fill-passkeys-02.png) {thumbnail="true"}
