@@ -3,6 +3,10 @@
     <variables>
         <custom-favicons>mz-icon.ico</custom-favicons>
         <header-logo>mz-logo.png</header-logo>
-        <product-web-url>https://mzelenov.com</product-web-url>
+        <product-web-url>https://maxz1985.github.io/docs/</product-web-url>
+        <algolia-id>EIQLZJYNQ3</algolia-id>
+        <algolia-index>mz-docs-index</algolia-index>
+        <algolia-api-key>931ca711216f8411a6208a3f4aa22788</algolia-api-key>
+        <web-root>https://some.domain</web-root>
     </variables>
 </buildprofiles>
