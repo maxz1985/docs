@@ -18,4 +18,8 @@
         <description>Created after removal of "Linux Snippets" from Documentation</description>
         <accepts>Linux-Snippets.html</accepts>
     </rule>
+    <rule id="391e7956">
+        <description>Created after removal of "Check Terminal Colors" from Documentation</description>
+        <accepts>Check-Terminal-Colors.html</accepts>
+    </rule>
 </rules>
