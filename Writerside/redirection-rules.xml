@@ -10,4 +10,12 @@
         <description>Created after removal of "Qemu-Kvm-Guest-Agent" from Documentation</description>
         <accepts>Qemu-Kvm-Guest-Agent.html</accepts>
     </rule>
+    <rule id="8b3fa86">
+        <description>Created after removal of "check" from Documentation</description>
+        <accepts>Check-colors-in-terminal.html</accepts>
+    </rule>
+    <rule id="5d7f76a6">
+        <description>Created after removal of "Linux Snippets" from Documentation</description>
+        <accepts>Linux-Snippets.html</accepts>
+    </rule>
 </rules>

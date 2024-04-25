@@ -1,7 +1,5 @@
 # Extract filename and extension in bash
 
-From StackOverflow examples
-
 ```bash
 
 ~% FILE="example.tar.gz"

@@ -5,11 +5,18 @@
 <instance-profile id="docs" name="Documentation"
                   start-page="bashExtractFileNameExt.md">
 
+    <toc-element toc-title="Rocky Linux">
+        <toc-element topic="Rocky-9-Installation.md"/>
+        <toc-element topic="Rocky8-KVM-GPU-Passthrough.md"/>
+        <toc-element topic="List-File-Octal-Permissions.md"/>
+        <toc-element topic="bashExtractFileNameExt.md"/>
+        <toc-element topic="TMUX-quick-reference.md"/>
+        <toc-element topic="Check-Terminal-Colors.md"/>
+    </toc-element>
+    <toc-element toc-title="macOS">
+        <toc-element topic="Add-Paths-on-macOS.md"/>
+        <toc-element topic="mtr-on-macOS-not-found-after-brew-install.md"/>
+    </toc-element>
     <toc-element topic="1Password-on-Pixel-Unable-to-Fill-Passkeys.md"/>
-    <toc-element topic="Add-Paths-on-macOS.md"/>
-    <toc-element topic="bashExtractFileNameExt.md"/>
     <toc-element topic="cbl-mariner-install.md"/>
-    <toc-element topic="Linux-Snippets.md"/>
-    <toc-element topic="mtr-on-macOS-not-found-after-brew-install.md"/>
-    <toc-element topic="Rocky8-KVM-GPU-Passthrough.md"/>
 </instance-profile>
