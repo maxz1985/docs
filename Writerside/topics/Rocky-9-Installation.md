@@ -2,12 +2,25 @@
 
 ## Package List
 
-### Command
+### Commands
+
+Activate `epel` extras repository
 ```Shell
-sudo dnf install epel-release git vim traceroute tcpdump bind-utils mtr htop btop fzf zsh -y
+sudo dnf install epel-release -y
+```
+Activate CRB powertools repository
+```Shell
+sudo /usr/bin/crb enable
+```
+Refresh repository content
+```Shell
+sudo dnf upgrade --refresh -y
+```
+Install additional packages
+```Shell
+sudo dnf install git vim traceroute tcpdump bind-utils mtr htop btop fzf zsh -y
 ```
 ### Packages
-* epel-release
 * git
 * vim
 * traceroute
@@ -19,11 +32,6 @@ sudo dnf install epel-release git vim traceroute tcpdump bind-utils mtr htop bto
 * fzf
 * zsh
 * https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
-
-## Enable powertools repository
-```Shell
-sudo /usr/bin/crb enable
-```
 
 ## Install AWS SSM Agent if required
 ```Shell

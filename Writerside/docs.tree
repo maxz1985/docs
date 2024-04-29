@@ -11,6 +11,7 @@
         <toc-element topic="List-File-Octal-Permissions.md"/>
         <toc-element topic="bashExtractFileNameExt.md"/>
         <toc-element topic="TMUX-quick-reference.md"/>
+        <toc-element topic="Rocky9-Install-Legacy-Storage-Drivers.md"/>
     </toc-element>
     <toc-element toc-title="macOS">
         <toc-element topic="Add-Paths-on-macOS.md"/>
