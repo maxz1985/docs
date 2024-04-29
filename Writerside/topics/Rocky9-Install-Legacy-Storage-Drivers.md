@@ -1,5 +1,11 @@
 # Rocky9 Install Legacy Storage Drivers
 
+Rocky9 has deprecated some of the old storage controllers such as `mpt sas` and `megaraid sas`.
+
+Drivers for deprecated controllers will not be included in the distribution by default leading to inability to access the array.
+
+The drivers can still be installed from  a community-supported [ELRepo](https://elrepo.org/wiki/doku.php?id=start) project that maintains the legacy drivers.
+
 ```Shell
 sudo dnf install elrepo-release
 ```
