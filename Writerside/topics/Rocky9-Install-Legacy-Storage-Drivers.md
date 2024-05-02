@@ -2,51 +2,71 @@
 
 Rocky9 has deprecated some of the old storage controllers such as `mpt sas` and `megaraid sas`.
 
-Drivers for deprecated controllers will not be included in the distribution by default leading to inability to access the array.
+Drivers for deprecated controllers will not be included in the distribution by default,
+leading to inability to access the array.
 
-The drivers can still be installed from  a community-supported [ELRepo](https://elrepo.org/wiki/doku.php?id=start) project that maintains the legacy drivers.
+The drivers can still be installed from a community-supported [ELRepo](https://elrepo.org/wiki/doku.php?id=start)
+project that maintains the legacy drivers.
 
+## Symptoms
+After installing Rocky9 and trying to access the RAID array, you may encounter the following:
+
+From GNOME Disk Utility
+
+![rocky9-install-legacy-storage-drivers-01.png](rocky9-install-legacy-storage-drivers-01.png) {thumbnail="true"}
+
+When attempting to format the volume
+
+![rocky9-install-legacy-storage-drivers-02.png](rocky9-install-legacy-storage-drivers-02.png) {thumbnail="true"}
+
+When attempting to use `fdisk`
 ```Shell
-sudo dnf install elrepo-release
+sudo fdisk /dev/sda -l
 ```
+```Shell
+fdisk: cannot open /dev/sda: Input/output error
+```
+## Find the controller ID
 ```Shell
 /sbin/lspci -nn | grep -i RAID
 ```
-
 ```Shell
 02:00.0 RAID bus controller [0104]: Broadcom / LSI MegaRAID SAS 2208 [Thunderbolt] [1000:005b] (rev 05)
 ```
-goto [](https://elrepo.org/wiki/doku.php?id=deviceids) and find `1000:005b`, it is 
+> The part of the output to note is the **Controller ID** which in this case is `1000:005b`
+> 
+{style="note"}
 
+## Install `ELRepo` repository
+```Shell
+sudo dnf install elrepo-release
+```
+## Find `ELRepo` driver for your controller
 
+Go to [](https://elrepo.org/wiki/doku.php?id=deviceids)and search for your controller id, in this case `1000:005b`
 
-## preconditions
+![rocky9-install-legacy-storage-drivers-03.png](rocky9-install-legacy-storage-drivers-03.png) {thumbnail="true"}
 
-sudo fdisk /dev/sda -l
-fdisk: cannot open /dev/sda: Input/output error
+>In this case, the driver is `kmod-megaraid_sas`
+>
+{style="note"}
 
-sudo fdisk -l
+## Install the driver
 
-
-Disk /dev/sdb: 237.97 GiB, 255516999680 bytes, 499056640 sectors
-Disk model: MR9271-8i
-Units: sectors of 1 * 512 = 512 bytes
-Sector size (logical/physical): 512 bytes / 512 bytes
-I/O size (minimum/optimal): 512 bytes / 512 bytes
-Disklabel type: gpt
-Disk identifier: 2E8048D3-0222-4796-A633-70336F22596E
-
-Device       Start       End   Sectors   Size Type
-/dev/sdb1     2048   1230847   1228800   600M EFI System
-/dev/sdb2  1230848   3327999   2097152     1G Linux filesystem
-/dev/sdb3  3328000 499054591 495726592 236.4G Linux LVM
-
+Search `ELRepo` for the *exact* package name
+```Shell
 sudo dnf -q list kmod-megaraid_sas
+```
+```Shell
 Available Packages
 kmod-megaraid_sas.x86_64                                          07.725.01.00-3.el9_3.elrepo
-
+```
+Install the driver package
+```
 sudo dnf install kmod-megaraid_sas.x86_64
-Last metadata expiration check: 0:01:32 ago on Fri 26 Apr 2024 10:22:03 AM EDT.
+```
+```Shell
+ast metadata expiration check: 0:01:32 ago on Fri 26 Apr 2024 10:22:03 AM EDT.
 Dependencies resolved.
 ==============================================================================================================================================
 Package                             Architecture             Version                                          Repository                Size
@@ -86,9 +106,5 @@ Installed:
 kmod-megaraid_sas-07.725.01.00-3.el9_3.elrepo.x86_64
 
 Complete!
-
-sudo reboot
-
-find . -type d -name "mega*"
-./kernel/drivers/scsi/megaraid
-./weak-updates/megaraid_sas
+```
+Reboot for the changes to take effect
