@@ -22,4 +22,12 @@
         <description>Created after removal of "Check Terminal Colors" from Documentation</description>
         <accepts>Check-Terminal-Colors.html</accepts>
     </rule>
+    <rule id="3f7f74db">
+        <description>Created after removal of "example starter" from Documentation</description>
+        <accepts>example-starter.html</accepts>
+    </rule>
+    <rule id="60c48c98">
+        <description>Created after removal of "Section Starting Page 01" from Documentation</description>
+        <accepts>Section-Starting-Page-01.html</accepts>
+    </rule>
 </rules>

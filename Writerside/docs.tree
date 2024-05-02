@@ -3,8 +3,9 @@
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
 
 <instance-profile id="docs" name="Documentation"
-                  start-page="bashExtractFileNameExt.md">
+                  start-page="MZ-Docs-Staring-Page.topic">
 
+    <toc-element topic="MZ-Docs-Staring-Page.topic"/>
     <toc-element toc-title="Rocky Linux">
         <toc-element topic="Rocky-9-Installation.md"/>
         <toc-element topic="Rocky8-KVM-GPU-Passthrough.md"/>
