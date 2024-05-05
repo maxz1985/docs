@@ -23,4 +23,7 @@
     <toc-element toc-title="AWS">
         <toc-element topic="AWS-Services.md"/>
     </toc-element>
+    <toc-element toc-title="KB">
+        <toc-element topic="Fix-PHP-Memory-Exhausted-InterServer.md"/>
+    </toc-element>
 </instance-profile>
