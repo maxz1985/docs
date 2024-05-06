@@ -21,6 +21,7 @@
     <toc-element topic="1Password-on-Pixel-Unable-to-Fill-Passkeys.md"/>
     <toc-element topic="cbl-mariner-install.md"/>
     <toc-element toc-title="AWS">
+        <toc-element topic="ELB-vs-Route53-Routing.md"/>
         <toc-element topic="AWS-Services.md"/>
         <toc-element topic="VPC-Reserved-IPs.md"/>
         <toc-element topic="Glossary.md"/>
