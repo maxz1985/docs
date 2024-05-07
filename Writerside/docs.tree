@@ -30,4 +30,5 @@
     <toc-element toc-title="KB">
         <toc-element topic="Fix-PHP-Memory-Exhausted-InterServer.md"/>
     </toc-element>
+    <toc-element toc-title="google_search" hidden="true" accepts-web-file-names="googleb9b6121082dc6fd8.html"/>
 </instance-profile>

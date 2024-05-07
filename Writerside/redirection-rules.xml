@@ -30,4 +30,8 @@
         <description>Created after removal of "Section Starting Page 01" from Documentation</description>
         <accepts>Section-Starting-Page-01.html</accepts>
     </rule>
+    <rule id="18e20b3e">
+        <description>Created after removal of "google_search" from Documentation</description>
+        <accepts>google-search.html</accepts>
+    </rule>
 </rules>
