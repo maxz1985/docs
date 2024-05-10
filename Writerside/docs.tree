@@ -11,8 +11,9 @@
         <toc-element topic="VPC-Reserved-IPs.md"/>
         <toc-element topic="ELB-vs-Route53-Routing.md"/>
         <toc-element topic="IAM-Policies-vs-S3-Bucket-Policies.md"/>
-        <toc-element topic="Glossary.md"/>
         <toc-element topic="Dates-in-ML.md"/>
+        <toc-element topic="Firehose-Data-Transformation.md"/>
+        <toc-element topic="Glossary.md"/>
     </toc-element>
     <toc-element toc-title="Rocky Linux">
         <toc-element topic="Rocky-9-Installation.md"/>
