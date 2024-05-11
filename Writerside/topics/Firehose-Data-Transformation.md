@@ -27,6 +27,11 @@ end
 
 > firehose uses `synchronous` lambda invocation mode
 
+> Watch for `lambda function timeout` value when processing firehose records. 
+> The default timeout of `3 Seconds` is rarely enough to process a record batch
+> 
+{style="warning"}
+
 ## Definitions
 
 lambda buffering hint (incoming buffer)
