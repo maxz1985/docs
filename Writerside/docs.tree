@@ -30,6 +30,7 @@
     <toc-element topic="1Password-on-Pixel-Unable-to-Fill-Passkeys.md"/>
     <toc-element topic="cbl-mariner-install.md"/>
     <toc-element toc-title="KB">
+        <toc-element topic="Debugging-Flask-in-Jetbrains.md"/>
         <toc-element topic="Fix-PHP-Memory-Exhausted-InterServer.md"/>
     </toc-element>
 </instance-profile>
