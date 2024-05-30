@@ -18,6 +18,9 @@ The `app.logger.info` lines will only print if the app is configured to start wi
 ```Python
 app.run(debug=True)
 ```
+
+![debugging-flask-in-jetbrains-02.png](debugging-flask-in-jetbrains-02.png) {thumbnail="true"}
+
 > NOTE You cannot use Jetbrains' IDE built-in debugger when your app is launched with `debug=True`
 > 
 {style="note"}
