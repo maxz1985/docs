@@ -10,7 +10,7 @@ You can write a Custom Identity Broker to create a URL that lets users who sign 
 
 Useful when you have to give users authenticated by **your own** identity provider access to AWS under a designated role.
 
-If your organization uses SAML-compatible Identity provider, no broker is required.
+If your organization uses a SAML-compatible Identity provider, no broker is required.
 
 `DecodeAuthorizationMessage` API decodes additional information about the authorization status of a request. Does not get tokens or credentials.
 
