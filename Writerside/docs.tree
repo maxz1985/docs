@@ -9,6 +9,7 @@
     <toc-element toc-title="AWS">
         <toc-element topic="AWS-Services.md"/>
         <toc-element topic="Create-an-instance-store-backed-Linux-AMI.md"/>
+        <toc-element topic="Custom-Identity-Broker-Access-To-AWS.md"/>
         <toc-element topic="Dates-in-ML.md"/>
         <toc-element topic="ELB-vs-Route53-Routing.md"/>
         <toc-element topic="Firehose-Data-Transformation.md"/>
