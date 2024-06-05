@@ -15,6 +15,7 @@
         <toc-element topic="ELB-vs-Route53-Routing.md"/>
         <toc-element topic="Firehose-Data-Transformation.md"/>
         <toc-element topic="IAM-Policies-vs-S3-Bucket-Policies.md"/>
+        <toc-element topic="Route-53-Resolver.md"/>
         <toc-element topic="VPC-Reserved-IPs.md"/>
         <toc-element topic="Glossary.md"/>
     </toc-element>
