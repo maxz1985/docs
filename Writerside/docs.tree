@@ -13,6 +13,7 @@
         <toc-element topic="Custom-Identity-Broker-Access-To-AWS.md"/>
         <toc-element topic="Dates-in-ML.md"/>
         <toc-element topic="ELB-vs-Route53-Routing.md"/>
+        <toc-element topic="Export-EC2-to-S3-as-VM-Image.md"/>
         <toc-element topic="Firehose-Data-Transformation.md"/>
         <toc-element topic="IAM-Policies-vs-S3-Bucket-Policies.md"/>
         <toc-element topic="Route-53-Resolver.md"/>
