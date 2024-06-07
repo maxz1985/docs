@@ -16,3 +16,6 @@
 [How health checks work in complex Amazon Route 53 configurations](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-complex-configs.html)
 
 [What happens when you omit health checks?](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-complex-configs.html#dns-failover-complex-configs-hc-omitting)
+
+## Snowball
+[AWS Snowball Edge device hardware information](https://docs.aws.amazon.com/snowball/latest/developer-guide/device-differences.html)
