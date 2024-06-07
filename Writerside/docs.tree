@@ -7,6 +7,7 @@
 
     <toc-element topic="MZ-Docs-Staring-Page.topic"/>
     <toc-element toc-title="AWS">
+        <toc-element topic="Add-IPv6-to-an-existing-IPv4-VPC.md"/>
         <toc-element topic="AWS-IAM-Account-level-permissions-vs-Resource-level-Permissions.topic"/>
         <toc-element topic="AWS-Services.md"/>
         <toc-element topic="Create-an-instance-store-backed-Linux-AMI.md"/>
