@@ -1,5 +1,7 @@
 # Glossary
 
+## AWS Batch
+[AWS Batch on AWS Fargate](https://docs.aws.amazon.com/batch/latest/userguide/fargate.html)
 ## Firehose
 [Destination Buffering hints](https://docs.aws.amazon.com/firehose/latest/dev/buffering-hints.html)
 
