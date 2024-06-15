@@ -18,6 +18,7 @@
         <toc-element topic="Export-EC2-to-S3-as-VM-Image.md"/>
         <toc-element topic="Firehose-Data-Transformation.md"/>
         <toc-element topic="IAM-Policies-vs-S3-Bucket-Policies.md"/>
+        <toc-element topic="OAuth-2-0-vs-OpenID-Connect.md"/>
         <toc-element topic="Route-53-Resolver.md"/>
         <toc-element topic="VPC-Reserved-IPs.md"/>
         <toc-element topic="Glossary.md"/>
