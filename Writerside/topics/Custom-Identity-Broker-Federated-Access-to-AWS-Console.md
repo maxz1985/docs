@@ -1,7 +1,7 @@
 # Custom Identity Broker Federated Access to AWS Console 
 
 ## Scenario
-You need to provide users, already **authenticated** by your own corporate identity provider (IdP),
+You need to provide users, already **authenticated** by your own **corporate** identity provider (IdP),
 federated access to AWS console via **Custom Identity Broker**. 
 > This works for **both** SAML-compatible and NON-SAML compatible IdPs
 >
