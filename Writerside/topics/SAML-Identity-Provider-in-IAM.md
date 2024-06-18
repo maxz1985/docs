@@ -5,7 +5,7 @@ You want to **establish trust between your SAML-compatible IdP** (such as
 Shibboleth or Active Directory Federation Services) **and AWS**, 
 so that **users in your organization authenticated by your IdP can access AWS resources**.
 
-> This is a prerequisite both [](SAML-Federated-Access-to-AWS-Console.md) and [](SAML-Federated-Access-to-AWS-API.md)
+> This is a prerequisite for both [](SAML-Federated-Access-to-AWS-Console.md)and [](SAML-Federated-Access-to-AWS-API.md)
 > 
 {style="note"}
 
