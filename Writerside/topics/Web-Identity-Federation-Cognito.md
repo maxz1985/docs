@@ -28,7 +28,7 @@ The diagram below tries to combine 2 authflows, - Enhanced and Basic, unsuccessf
 An `IdP ID Token` is returned by the IdP
 3. The app submits the `IdP Token` to Cognito's  `GetId` API
 4. Your identity pool returns an `identity ID`
-5. The app combines the `identity ID` with the `IdP ID Token` in a `GetCredentialsForIdentity` request
+5. The app combines the `identity ID` with the `IdP ID Token` in a `GetCredentialsForIdentity` request to Cognito
 6. Your identity pool returns **AWS Credentials**
 7. Your application signs AWS API requests with the temporary credentials.
 
@@ -44,7 +44,19 @@ An `IdP ID Token` is returned by the IdP
 
 ![web-identity-federation-cognito-03.png](web-identity-federation-cognito-03.png) {thumbnail="true"}
 
-### Steps to set up
+1. A customer starts your app on a mobile device. The app asks the user to sign in
+2. The app uses Login with Amazon, Facebook, Google,
+   or any other OpenID Connect (OIDC)–compatible IdP to accept the user's credentials.
+   An `IdP ID Token` is returned by the IdP
+3. The app submits the `IdP Token` to Cognito's  `GetId` API
+4. Your identity pool returns an `identity ID`
+5. The app combines the `identity ID` with `IdP ID Token` in a `GetOpenIdToken` request to Cognito
+6. `GetOpenIdToken` returns a new **`Cognito's OAuth 2.0 token`** **issued by your identity pool**
+7. Your application presents the `Cognito's OAuth 2.0 token` in an `AssumeRoleWithWebIdentity` request to **STS**
+8. AWS Security Token Service (AWS STS) returns AWS credentials.
+9. Your application signs AWS API requests with the temporary credentials.
+
+## Steps to set up
 1. Sign up with Amazon, Facebook, Google, or any other OpenID Connect (OIDC)–compatible IdP and 
 configure one or more apps with the provider.
 2. Go to Amazon Cognito in the AWS Management Console. Use the Amazon Cognito wizard to create an **identity pool**, 
