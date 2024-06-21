@@ -11,6 +11,7 @@
         <toc-element topic="Application-Portfolio-Assesment-AWS-Cloud-Migration.md"/>
         <toc-element topic="AWS-IAM-Account-level-permissions-vs-Resource-level-Permissions.topic"/>
         <toc-element topic="AWS-Lambda-Permissions.md"/>
+        <toc-element topic="AWS-Migration-Strategies-The-6Rs.md"/>
         <toc-element topic="AWS-Services.md"/>
         <toc-element topic="Create-an-instance-store-backed-Linux-AMI.md"/>
         <toc-element topic="Custom-Identity-Broker-Access-To-AWS.md"/>
