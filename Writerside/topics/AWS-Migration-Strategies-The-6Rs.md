@@ -9,3 +9,5 @@
 | 5. Retire                | Get rid of<br/>statistics show that 10% of applications in any IT environment are unused.<br/>identify owners of applications, obtain justification for continued app use, Retire if no justification                                                                                                                              |
 | 6. Retain                | Leave alone as is.<br/>Migration should only be considered if there is a business value. Apps that cannot be migrated resulting in financial benefit for the company should be left alone.                                                                                                                                         |
 | Relocate                 | **For applications that are already virtualized** such as running as VMs on VMware, or already running in containers say on local K8s                                                                                                                                                                                              |
+
+![aws-migration-strategies-the-6rs-01.png](aws-migration-strategies-the-6rs-01.png) {thumbnail="true"}
