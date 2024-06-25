@@ -12,9 +12,12 @@ The diagram below tries to combine 2 authflows, - Enhanced and Basic, unsuccessf
 
 ![web-identity-federation-cognito.png](web-identity-federation-cognito.png) {thumbnail="true"}
 
-> The basic workflow gives you more granular control over the credentials that you distribute to your users.<br/>
-> The `GetCredentialsForIdentity` request of the **enhanced** authflow requests a role based on the contents of an access token.<br/>
-> The `AssumeRoleWithWebIdentity` request in the **classic** workflow grants your app ability to request credentials for **any** IAM role that you have configured with a sufficient trust policy.
+> The basic(classic) authflow gives you more granular control over the credentials that you distribute to your users.<br/>
+> The `GetCredentialsForIdentity`
+> request of the **enhanced** authflow requests credentials for **one particular role** based on the contents of an access token.<br/>
+> The `AssumeRoleWithWebIdentity`
+> request in the **classic** authflow allows you
+> to request credentials for **any IAM role that you have configured with a sufficient trust policy**.
 > You can also request a custom role session duration.
 
 ## Enhanced (simplified) Authflow
@@ -29,8 +32,9 @@ An `IdP ID Token` is returned by the IdP
 3. The app submits the `IdP Token` to Cognito's  `GetId` API
 4. Your identity pool returns an `identity ID`
 5. The app combines the `identity ID` with the `IdP ID Token` in a `GetCredentialsForIdentity` request to Cognito
-6. Your identity pool returns **AWS Credentials**
-7. Your application signs AWS API requests with the temporary credentials.
+6. (_in background_) Cognito performs "GetOpenIdToken" and "AssumeRoleWithWebIdentity" FOR YOU, you're NOT making these calls with enhanced(simplified) authflow.
+7. Your identity pool returns **AWS Credentials**
+8. Your application signs AWS API requests with the temporary credentials.
 
 > The flow is "Simplified" or "Enhanced" because in Step 5, Cognito calls STS for you to exchange
 > Amazon Cognito Token that it generates for STS credentials and returns the credentials.<br/>
