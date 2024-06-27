@@ -32,7 +32,6 @@
         <toc-element topic="Firehose-Data-Transformation.md"/>
         <toc-element topic="IAM-Policies-vs-S3-Bucket-Policies.md"/>
         <toc-element toc-title="Interesting Questions">
-
             <toc-element topic="API-Gateway-Lambda-Integration.md"/>
         </toc-element>
         <toc-element topic="RDS-MySQL-Add-On-Prem-Replica.md"/>
