@@ -31,6 +31,10 @@
         </toc-element>
         <toc-element topic="Firehose-Data-Transformation.md"/>
         <toc-element topic="IAM-Policies-vs-S3-Bucket-Policies.md"/>
+        <toc-element toc-title="Interesting Questions">
+
+            <toc-element topic="API-Gateway-Lambda-Integration.md"/>
+        </toc-element>
         <toc-element topic="RDS-MySQL-Add-On-Prem-Replica.md"/>
         <toc-element topic="Route-53-Resolver.md"/>
         <toc-element topic="S3-Storage-Tiers.md"/>
@@ -55,6 +59,8 @@
     <toc-element topic="CicrleCI-Self-Hosted-Runner-Docker-Issue.md"/>
     <toc-element topic="CircleCI-Using-Self-Hosted-Runners.md"/>
     <toc-element topic="Data-Analytics.md"/>
+    <toc-element topic="Git.md"/>
+    <toc-element topic="Terraformer-Reverse-Terraform.md"/>
     <toc-element toc-title="KB">
         <toc-element topic="Debugging-Flask-in-Jetbrains.md"/>
         <toc-element topic="Fix-PHP-Memory-Exhausted-InterServer.md"/>
