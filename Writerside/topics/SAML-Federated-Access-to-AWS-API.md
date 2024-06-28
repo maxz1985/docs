@@ -1,5 +1,5 @@
 # SAML Federated Access to AWS API
-
+<tldr><p><ui-path>User -> IdP -> User <code>AssumeRolewithSAML</code> -> STS -> Credentials</ui-path></p></tldr>
 > A pre-requisite for this is to have a [](SAML-Identity-Provider-in-IAM.md)
 >
 {style="note"}

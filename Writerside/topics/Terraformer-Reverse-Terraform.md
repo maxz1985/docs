@@ -16,7 +16,7 @@ brew install terraformer
 ```
 Navigate to the directory where you want `terraformer` to output `.tf` files
 
-We are going to be using AWS provider (other providers available)
+We're going to be using AWS provider (other providers available)
 
 Create a `version.tf` file in the directory with the following content.
 ```shell
