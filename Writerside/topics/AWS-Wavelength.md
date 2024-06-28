@@ -2,7 +2,7 @@
 
 ![aws-wavelength-01.png](aws-wavelength-01.png) {thumbnail="true"}
 
-* Use `Carrier Gateway` to access Internet from a Wavelength zone
+* Use `Carrier Gateway` to access the internet from a Wavelength zone
 * A `Carrier Gateway` serves two purposes. 
   * It allows inbound traffic from a carrier network at a specific location
   * it allows outbound traffic to the carrier network and traffic **to** the **internet** via AWS network
