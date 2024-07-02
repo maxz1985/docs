@@ -13,6 +13,7 @@
         <toc-element topic="AWS-Migration-Strategies-The-6Rs.md"/>
         <toc-element topic="AWS-Lambda-Permissions.md"/>
         <toc-element topic="AWS-Services.md"/>
+        <toc-element topic="AWS-StepFunction-Workflows.md"/>
         <toc-element topic="AWS-Systems-Manager-IAM-Policies.md"/>
         <toc-element topic="AWS-Wavelength.md"/>
         <toc-element topic="Create-an-instance-store-backed-Linux-AMI.md"/>
