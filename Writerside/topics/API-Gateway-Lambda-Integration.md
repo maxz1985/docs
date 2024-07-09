@@ -275,7 +275,7 @@ export function handler (event, context, callback) {
 ### Lambda code example for proxy integration handling different HTTP methods
 The **typical** way of setting up the Lambda Proxy Integration in API Gateway is through creating `ANY`**method**.
 
-In this case the Lambda code will handle the parsing based on which HTTP method is used.
+In this case, the Lambda code will handle the parsing based on which HTTP method is used.
 ```Javascript
 export async function handler(event) {
     const httpMethod = event.httpMethod;
