@@ -71,4 +71,7 @@
         <toc-element topic="Debugging-Flask-in-Jetbrains.md"/>
         <toc-element topic="Fix-PHP-Memory-Exhausted-InterServer.md"/>
     </toc-element>
+    <toc-element toc-title="Excercises">
+        <toc-element topic="N-Interesting-Polygon.md"/>
+    </toc-element>
 </instance-profile>
