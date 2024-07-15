@@ -1,5 +1,7 @@
 # N-Interesting Polygon
 
+<resource src="N-Interesting Polygon.pptx"></resource>
+
 ![n-interesting-polygon-01.png](n-interesting-polygon-01.png)
 
 ```Python
