@@ -1,6 +1,7 @@
 # Custom Identity Broker Access To AWS
 
-You can write a Custom Identity Broker to create a URL that lets users who sign in to your organization's network securely access the AWS Management Console.
+You can write a Custom Identity Broker
+to create a URL that lets users who log in to your organization's network securely access the AWS Management Console.
 * User authenticates to your own local identity system
 * Broker verifies that user is authenticated
 * Broker calls `AssumeRole` API (STS) to get temporary security credentials. `GetFederationToken` API can also be used but `AssumeRole` is the recommended way.
@@ -12,6 +13,7 @@ Useful when you have to give users authenticated by **your own** identity provid
 
 If your organization uses a SAML-compatible Identity provider, no broker is required.
 
-`DecodeAuthorizationMessage` API decodes additional information about the authorization status of a request. Does not get tokens or credentials.
+`DecodeAuthorizationMessage` API decodes additional information about the authorization status of a request.
+Doesn't get tokens or credentials.
 
 SAML2 can support roles.

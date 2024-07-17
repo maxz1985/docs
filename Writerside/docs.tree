@@ -45,6 +45,7 @@
         <toc-element topic="RDS-MySQL-Add-On-Prem-Replica.md"/>
         <toc-element topic="Route-53-Resolver.md"/>
         <toc-element topic="S3-Storage-Tiers.md"/>
+        <toc-element topic="SCP-or-IAM-Policy-Based-on-Date-and-Time.md"/>
         <toc-element topic="VPC-Reserved-IPs.md"/>
         <toc-element topic="Glossary.md"/>
     </toc-element>
