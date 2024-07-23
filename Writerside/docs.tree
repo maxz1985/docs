@@ -39,6 +39,7 @@
         <toc-element toc-title="Interesting Questions">
             <toc-element topic="Aurora-Serverless.md"/>
             <toc-element topic="API-Gateway-Lambda-Integration.md"/>
+            <toc-element topic="CloudFormation-Stacks.md"/>
             <toc-element topic="Example-Policy.md"/>
         </toc-element>
         <toc-element topic="Loading-Data-into-OpenSearch.md"/>
