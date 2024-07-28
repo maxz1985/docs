@@ -16,6 +16,7 @@
         <toc-element topic="AWS-StepFunction-Workflows.md"/>
         <toc-element topic="AWS-Systems-Manager-IAM-Policies.md"/>
         <toc-element topic="AWS-Wavelength.md"/>
+        <toc-element topic="CloudTrail-Event-History-vs-Logs.md"/>
         <toc-element topic="Create-an-instance-store-backed-Linux-AMI.md"/>
         <toc-element topic="Custom-Identity-Broker-Access-To-AWS.md"/>
         <toc-element topic="Dates-in-ML.md"/>
