@@ -19,6 +19,7 @@
         <toc-element topic="AWS-Wavelength.md"/>
         <toc-element topic="CloudTrail-Event-History-vs-Logs.md"/>
         <toc-element topic="Create-an-instance-store-backed-Linux-AMI.md"/>
+        <toc-element topic="Cross-Account-Access.md"/>
         <toc-element topic="Custom-Identity-Broker-Access-To-AWS.md"/>
         <toc-element topic="Dates-in-ML.md"/>
         <toc-element topic="EC2-Multiple-IPs.md"/>
