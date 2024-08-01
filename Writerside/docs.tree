@@ -9,6 +9,8 @@
     <toc-element toc-title="AWS">
         <toc-element topic="Add-IPv6-to-an-existing-IPv4-VPC.md"/>
         <toc-element topic="Application-Portfolio-Assesment-AWS-Cloud-Migration.md"/>
+        <toc-element topic="ARN-Components.md"/>
+        <toc-element topic="AWS-Global-Services.md"/>
         <toc-element topic="AWS-IAM-Account-level-permissions-vs-Resource-level-Permissions.topic"/>
         <toc-element topic="AWS-Migration-Strategies-The-6Rs.md"/>
         <toc-element topic="AWS-Lambda-Permissions.md"/>
@@ -48,6 +50,7 @@
         <toc-element topic="Loading-Data-into-OpenSearch.md"/>
         <toc-element topic="RDS-MySQL-Add-On-Prem-Replica.md"/>
         <toc-element topic="Route-53-Resolver.md"/>
+        <toc-element topic="S3-Object-Storage.md"/>
         <toc-element topic="S3-Storage-Tiers.md"/>
         <toc-element topic="SCP-or-IAM-Policy-Based-on-Date-and-Time.md"/>
         <toc-element topic="VPC-Reserved-IPs.md"/>

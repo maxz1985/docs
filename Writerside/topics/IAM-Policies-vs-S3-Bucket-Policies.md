@@ -54,7 +54,7 @@ The bucket policy below grants the ability to use S3 `GET Bucket` (`ListObjects`
 
 ## S3 Resource-based Policies are used when
 
-- There is a need for a simple way to grant **cross-account access** to your S3 environment, without using IAM roles.
+- There is a need for a simple way to grant **cross-account access** to your S3 environment, without using IAM roles. see also [](Cross-Account-Access.md)
 - IAM policies bump up against the size limit (up to 2 KB for users, 5 KB for groups, and 10 KB for roles). S3 supports bucket policies of up to 20 KB.
 - There is a need to keep access control policies in the S3 environment.
 - There is a requirement to apply common security controls to the principals who interact with S3 buckets, such as restricting the IP addresses or VPC a bucket can be accessed from.
