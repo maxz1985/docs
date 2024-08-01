@@ -145,7 +145,9 @@ graph TD
         Resource[Resource:<br/>ex. S3,KMS, ElasticSearch, etc.<br/>_]
         Role([Role])
         Permission_Policy([Permission Policy<br>Allows access to resource<br/>_])
+        Trust_policy([Trust Policy<br/>Allows a principal to assume the role<br/>_ ])
         Permission_Policy -->|Attached to| Role
+        Trust_policy -->|Attached to| Role 
         Role -->|Access to the resource| Resource
     end
     
@@ -157,3 +159,58 @@ This creates a `Session` during which IAM User in `Account A` has only the permi
 
 User's original IAM permissions in `Account A` are effectively given up for the duration of the `Session`.
 
+### Create a Permission Policy in Account B (with resources)
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:ListBucket",
+        "s3:GetObject"
+      ],
+      "Resource": [
+        "arn:aws:s3:::example-bucket",
+        "arn:aws:s3:::example-bucket/*"
+      ]
+    }
+  ]
+}
+```
+### Create a Role in Account B (with resources)
+1. In IAM Console of `Account B` create a Role 
+2. Select `AWS Account` -> `Another AWS account` and enter AWS account ID of `Account A`
+3. Add the `Permission Policy` created in the previous step
+4. In the `Trust Policy` field enter the following:
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::AccountA-ID:user/Username"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+```
+### Attach Policy to the IAM User in Account A (user accessing resources in B)
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "sts:AssumeRole",
+      "Resource": "arn:aws:iam::AccountB-ID:role/CrossAccountRole"
+    }
+  ]
+}
+
+```
+{type="medium"}
+`CrossAccountRole`
+: Name of the Role created in the previous step.
