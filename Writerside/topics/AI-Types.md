@@ -1,0 +1,12 @@
+# AI Types
+
+| Type of AI                       | Description                                                                                                   | Examples                     | Characteristics                              | Generative AI?            |
+|----------------------------------|---------------------------------------------------------------------------------------------------------------|------------------------------|----------------------------------------------|---------------------------|
+| **Narrow AI (Weak AI)**          | AI systems designed to perform a specific task or a narrow range of tasks.                                    | Chess AI, Google Translate   | Task-specific, Limited Scope                 | No                        |
+| **Broad AI (Conversational AI)** | AI systems designed to engage in human-like conversations across a wide range of topics.                      | ChatGPT, GPT-4, Bing Chat    | Handles diverse topics, More versatile       | Yes                       |
+| **General AI (Strong AI)**       | Hypothetical AI that possesses the ability to understand, learn, and apply intelligence broadly like a human. | None (currently theoretical) | Human-like intelligence, Broad Scope         | Potentially in the future |
+| **Super-intelligent AI**         | AI that surpasses human intelligence across all fields.                                                       | None (currently theoretical) | Exceeds human intelligence, Autonomous       | Potentially in the future |
+| **Reactive Machines**            | Basic AI systems that react to specific stimuli but do not have memory or learning capabilities.              | Deep Blue (chess computer)   | No Memory, Reacts to inputs                  | No                        |
+| **Limited Memory**               | AI systems that can use past experiences to inform future decisions.                                          | Self-driving cars            | Memory-based decisions, Short-term memory    | No                        |
+| **Theory of Mind**               | Advanced AI with an understanding of emotions, beliefs, and thoughts of other entities.                       | None (currently theoretical) | Social intelligence, Emotional understanding | Potentially in the future |
+| **Self-aware AI**                | The most advanced form, possessing self-awareness and consciousness.                                          | None (currently theoretical) | Self-conscious, Autonomous                   | Potentially in the future |
