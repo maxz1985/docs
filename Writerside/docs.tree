@@ -22,6 +22,7 @@
         <toc-element topic="AWS-StepFunction-Workflows.md"/>
         <toc-element topic="AWS-Systems-Manager-IAM-Policies.md"/>
         <toc-element topic="AWS-Wavelength.md"/>
+        <toc-element topic="CloudFront-Field-Level-Encryption.md"/>
         <toc-element topic="CloudTrail-Event-History-vs-Logs.md"/>
         <toc-element topic="Create-an-instance-store-backed-Linux-AMI.md"/>
         <toc-element topic="Cross-Account-Access.md"/>
@@ -53,6 +54,7 @@
         <toc-element topic="Loading-Data-into-OpenSearch.md"/>
         <toc-element topic="RDS-MySQL-Add-On-Prem-Replica.md"/>
         <toc-element topic="Route-53-Resolver.md"/>
+        <toc-element topic="Signed-URLs.md"/>
         <toc-element topic="S3-Object-Storage.md"/>
         <toc-element topic="S3-Storage-Tiers.md"/>
         <toc-element topic="SCP-or-IAM-Policy-Based-on-Date-and-Time.md"/>
