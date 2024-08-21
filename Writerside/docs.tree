@@ -82,6 +82,7 @@
     <toc-element topic="CircleCI-Using-Self-Hosted-Runners.md"/>
     <toc-element topic="Data-Analytics.md"/>
     <toc-element topic="Git.md"/>
+    <toc-element topic="PowerToys-Settings-Backup-And-Restore.md"/>
     <toc-element topic="Terraformer-Reverse-Terraform.md"/>
     <toc-element toc-title="KB">
         <toc-element topic="Debugging-Flask-in-Jetbrains.md"/>
