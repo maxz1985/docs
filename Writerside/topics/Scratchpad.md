@@ -1,0 +1,2 @@
+# Scratchpad
+Storage Gateway types: <ul><li>Volume Gateway (presented as iSCSI device) whole volume<ul><li>Stored Mode for **low-latency access to full volume** – all data initially stored locally and pushed asynchronously to S3 in the background. Stored on S3 as an EBS volume.</li><li>Cached mode – primary data written to S3 while frequently accessed data stored locally</li></ul></li><li>S3 File Gateway – A File Share presented as SMB or NFS to a client.</li></ul>
