@@ -1,7 +1,7 @@
 # AWS Lambda Permissions
 <tldr>
     <p>Minimal permissions required are granting access to `CloudWatch`.</p>
-    <p>They are provided by `AWSLambdaBasicExecutionRole` managed policy.</p>
+    <p>They're provided by `AWSLambdaBasicExecutionRole` managed policy.</p>
     <code-block lang="json">
         {
           "Version" : "2012-10-17",
@@ -30,13 +30,16 @@ Permissions that a Lambda function needs are defined in a special IAM role calle
 ### Create an execution role in IAM
 To create an execution role in the IAM console:
 1. Open the _Roles page_ in the IAM console. 
-2. Choose **Create role**. 
-3. Under **Trusted entity type**, choose **AWS service**. 
-4. Under **Use case**, choose **Lambda**. 
-5. Choose **Next**. 
-6. Select the AWS managed policies that you want to attach to your role. For example, if your function needs to access DynamoDB, select the AWSLambdaDynamoDBExecutionRole managed policy. 
-7. Choose **Next**. 
-8. Enter a **Role name** and then choose **Create role**.
+2. Select **Create role**. 
+3. Under **Trusted entity type**, select **AWS service**. 
+4. Under **Use case**, select **Lambda**. 
+5. Select **Next**. 
+6. Select the AWS managed policies that you want to attach to your role.
+   For example, 
+   if your function needs to access *DynamoDB*, select the `AWSLambdaDynamoDBExecutionRole` managed policy. 
+   OR if your Lambda needs to *access resources in a VPC*, select the `AWSLambdaVPCAccessExecutionRole` managed policy.
+7. Select **Next**. 
+8. Enter a **Role name** and then select **Create role**.
 ### Add required permission policies for your lambda
 At a minimum, _your execution role must have access to Amazon CloudWatch_ because Lambda functions log to CloudWatch Logs by default.
 
@@ -60,7 +63,7 @@ For example, if you need access to `DynamoDB`, attach the following policy to th
 }
 ```
 ## Permissions that other AWS users and entities need to call Lambda
-As an example, let's grant the API Gateway permission to invoke a Lambda function.
+As an example, let us grant the API Gateway permission to invoke a Lambda function.
 
 Amazon API Gateway gets permission to invoke your function from the **function's resource-based policy**.
 
