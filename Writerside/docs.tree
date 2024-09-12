@@ -17,6 +17,7 @@
         <toc-element topic="AWS-Global-Services.md"/>
         <toc-element topic="AWS-IAM-Account-level-permissions-vs-Resource-level-Permissions.topic"/>
         <toc-element topic="AWS-Migration-Strategies-The-6Rs.md"/>
+        <toc-element topic="AWS-Lambda-Networking.md"/>
         <toc-element topic="AWS-Lambda-Permissions.md"/>
         <toc-element topic="AWS-Services.md"/>
         <toc-element topic="AWS-Services-That-Support-Resource-Policies.md"/>
