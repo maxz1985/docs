@@ -54,3 +54,4 @@ Customer VPC is not accessible
 
 ![aws-lambda-networking-03.png](aws-lambda-networking-03.png) {thumbnail="true"}
 
+Reference: [Configuring Lambda With VPC Resources Access](https://medium.com/@arunasilva86/how-to-use-vpc-networking-effectively-for-lambda-445abefdf8cf)
