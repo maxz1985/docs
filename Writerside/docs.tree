@@ -39,6 +39,7 @@
         <toc-element topic="ELB-vs-Route53-Routing.md"/>
         <toc-element topic="Export-EC2-to-S3-as-VM-Image.md"/>
         <toc-element toc-title="Federated Authentication Scenarios">
+            <toc-element topic="IAM-Web-Identity-Federation.md"/>
             <toc-element topic="Federation-scenarios-summary.md"/>
             <toc-element topic="SAML-Identity-Provider-in-IAM.md"/>
             <toc-element topic="SAML-Federated-Access-to-AWS-Console.md"/>
@@ -52,6 +53,7 @@
         <toc-element topic="Firehose-Data-Transformation.md"/>
         <toc-element topic="HTTP-Headers.md"/>
         <toc-element topic="IAM-Policies-vs-S3-Bucket-Policies.md"/>
+        <toc-element topic="IAM-Roles-and-attached-policies.md"/>
         <toc-element toc-title="Interesting Questions">
             <toc-element topic="Aurora-Serverless.md"/>
             <toc-element topic="API-Gateway-Lambda-Integration.md"/>
