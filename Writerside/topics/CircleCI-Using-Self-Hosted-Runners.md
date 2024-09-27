@@ -13,7 +13,7 @@ Fill in the `Resource Class Label` field and click `Save and Continue`.
 You will be presented with a `Resource Class Token`. Save the token in secure storage, *it will NOT be displayed again*.
 
 ## Install and Configure a Self-Hosted Runner
-We are going to do this on `Ubuntu 24.04` machine with `docker` already installed.<br/>
+We're going to do this on `Ubuntu 24.04` machine with `docker` already installed.<br/>
 CircleCI Self-Hosted runners come in two flavors—a container and OS executable. We will be using the OS executable runner in this example.
 
 * install CircleCI CLI using snap
@@ -76,9 +76,9 @@ jobs:
 > 
 {style="note"}
 * in the `app.circleci.com` navigate to `Projects` and click `Set Up Project`
-* Select `Fastest: Use the .circleci/config.yml in my repo` option, choose branch and click `Set Up Project`
+* Select `Fastest: Use the .circleci/config.yml in my repo` option, select branch and click `Set Up Project`
 * navigate to `Pipelines` and you should see your project building
-* Expand the pipeline, click on `runner`
+* Expand the pipeline, click `runner`
 * if everything went well, you should see the following last build step
 * 
 ![circleci-using-self-hosted-runners-02.png](circleci-using-self-hosted-runners-02.png) {thumbnail="true"}

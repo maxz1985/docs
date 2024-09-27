@@ -7,7 +7,7 @@
 
     <tldr><p>Resource-level permissions refer to the ability to use <code>ARN</code> to specify individual resources in a policy</p></tldr>
     <chapter title="Account-level permissions" id="account-level-permissions">
-        <p> Let's examine an IAM policy allowing the creation of a VPC with a public subnet</p>
+        <p> Let us examine an IAM policy allowing the creation of a VPC with a public subnet</p>
         <code-block lang="json">
             {
                 "Version": "2012-10-17",

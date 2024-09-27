@@ -15,7 +15,7 @@ OpenSearch has Direct CloudWatch integration.
 
 OR
 
-Forward logs to Kinesis Data Firehose, then have Firehose ingest into OpenSearch
+Forward logs to Kinesis Data Firehose, then use `Firehose` to ingest into OpenSearch
 
 OR
 

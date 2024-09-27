@@ -17,7 +17,7 @@ The diagram below tries to combine 2 authflows, - Enhanced and Basic, unsuccessf
 > request of the **enhanced** authflow requests credentials for **one particular role** based on the contents of an access token.<br/>
 > The `AssumeRoleWithWebIdentity`
 > request in the **classic** authflow allows you
-> to request credentials for **any IAM role that you have configured with a sufficient trust policy**.
+> to request credentials for **any IAM role that you've configured with a sufficient trust policy**.
 > You can also request a custom role session duration.
 
 ## Enhanced (simplified) Authflow
@@ -26,7 +26,7 @@ The diagram below tries to combine 2 authflows, - Enhanced and Basic, unsuccessf
 
 ![web-identity-federation-cognito-02.png](web-identity-federation-cognito-02.png) {thumbnail="true"}
 
-1. A customer starts your app on a mobile device. The app asks the user to sign in
+1. A customer starts your app on a mobile device. The app asks the user to log in
 2. The app uses Login with Amazon, Facebook, Google, or any other OpenID Connect (OIDC)–compatible IdP to accept the user's credentials.
 An `IdP ID Token` is returned by the IdP
 3. The app submits the `IdP Token` to Cognito's  `GetId` API
@@ -48,7 +48,7 @@ An `IdP ID Token` is returned by the IdP
 
 ![web-identity-federation-cognito-03.png](web-identity-federation-cognito-03.png) {thumbnail="true"}
 
-1. A customer starts your app on a mobile device. The app asks the user to sign in
+1. A customer starts your app on a mobile device. The app asks the user to log in
 2. The app uses Login with Amazon, Facebook, Google,
    or any other OpenID Connect (OIDC)–compatible IdP to accept the user's credentials.
    An `IdP ID Token` is returned by the IdP

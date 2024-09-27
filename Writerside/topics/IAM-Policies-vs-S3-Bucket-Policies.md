@@ -1,6 +1,6 @@
 # IAM Policies vs S3 Bucket Policies
 
-There are two types of policies for S3 Access, - IAM and Bucket.  
+There are two types of policies for S3 Access, – IAM and Bucket.  
 > Visually, the resource (bucket) policy can be distinguished by the presence of the `Principal` parameter in the policy.
 > 
 {style="note"}
@@ -48,7 +48,7 @@ The bucket policy below grants the ability to use S3 `GET Bucket` (`ListObjects`
 
 ## Identity-based Policies are used when
 
-- Controlling access to more AWS services than *just* S3. IAM policies will be simpler to manage since you can centrally manage your permissions in IAM, instead of spreading them between IAM and S3.
+- Controlling access to more AWS services other than S3. IAM policies will be simpler to manage since you can centrally manage your permissions in IAM, instead of spreading them between IAM and S3.
 - **Managing many S3 buckets, each with different permissions requirements.** IAM policies will be simpler to manage since you don’t have to define a large number of S3 bucket policies and can instead rely on fewer, more detailed IAM policies.
 - There is a need to keep access control policies in the IAM environment.
 
@@ -59,7 +59,7 @@ The bucket policy below grants the ability to use S3 `GET Bucket` (`ListObjects`
 - There is a need to keep access control policies in the S3 environment.
 - There is a requirement to apply common security controls to the principals who interact with S3 buckets, such as restricting the IP addresses or VPC a bucket can be accessed from.
 
-Consider your answer to this audit question to choose the right approach:
+Consider your answer to this audit question to select the right approach:
 
 - If you’re more interested in “**What can this user do in AWS?**”, then IAM policies are probably the way to go. You can answer this question by looking up an IAM user and then examining their IAM policies to see what rights they have.
 - If you’re more interested in “**Who can access this S3 bucket?**”, then S3 bucket policies will likely suit you better. You can answer this question by looking up a bucket and examining the bucket policy.

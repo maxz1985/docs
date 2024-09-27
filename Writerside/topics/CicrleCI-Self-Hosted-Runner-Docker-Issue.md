@@ -14,7 +14,7 @@ CircleCI received exit code 1
 ```
 On a Linux system, only users that belong to the `docker` group can run docker commands without `sudo`.
 
-Find user under which the `circleci-runner` service is running.
+Find the user under which the `circleci-runner` service is running.
 ```shell
 systemctl show -pUser,UID circleci-runner
 ```

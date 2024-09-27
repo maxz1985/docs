@@ -33,7 +33,7 @@ For example, you can use OAuth to let a third-party app access your Google Drive
 OAuth **uses tokens** to represent the scope and duration of the access granted by the user.
 
 _OAuth is not an authentication protocol_,
-meaning it does not verify the identity of the user,
+meaning it doesn't verify the identity of the user,
 but _it relies on other methods, such as `OpenID Connect`, to do so_.
 
 ## OpenID Connect (OIDC)
@@ -45,6 +45,6 @@ For example, you can use OpenID to log in to Stack Overflow with your Google or 
 OpenID **uses identifiers** to represent the user's identity,
 **which are URLs or URIs that point to an OpenID provider (OP) that verifies the user's credentials**.
 
-_OpenID does not provide authorization_,
-meaning it does not specify what the user can do or access on the relying party (RP),
+_OpenID doesn't provide authorization_,
+meaning it doesn't specify what the user can do or access on the relying party (RP),
 but _it can be combined with other protocols, such as `OAuth`, to do so._

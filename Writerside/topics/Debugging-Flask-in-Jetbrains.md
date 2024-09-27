@@ -1,6 +1,6 @@
 # Debugging Flask in Jetbrains
 
-First of all, use `Flask`'s built-in logging facility—`app.logger`
+First, use `Flask`'s built-in logging facility—`app.logger`
 ```Python
 app.logger.info('Testing INFO logging line')
 app.logger.error('Testing ERROR logging line')
@@ -21,6 +21,6 @@ app.run(debug=True)
 
 ![debugging-flask-in-jetbrains-02.png](debugging-flask-in-jetbrains-02.png) {thumbnail="true"}
 
-> NOTE You cannot use Jetbrains' IDE built-in debugger when your app is launched with `debug=True`
+> NOTE You can't use Jetbrains' IDE built-in debugger when your app is launched with `debug=True`
 > 
 {style="note"}

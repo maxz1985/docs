@@ -8,7 +8,7 @@
 
 * Launch an **instance store-backed** instance from AWS AMI catalog.
 * Customize the instance for your needs.
-* Create an S3 bucket **with ACLS enabled** (if using AMI tools is 1.5.18 or later, you can also use the `ec2-upload-bundle` command to create the S3 bucket)
+* Create an S3 bucket **with ACLs enabled** (if using AMI tools is 1.5.18 or later, you can also use the `ec2-upload-bundle` command to create the S3 bucket)
 * Note your AWS account ID
 * Create a signing X509 certificate and upload to AWS.[Manage Signing Certificates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/set-up-ami-tools.html#ami-tools-managing-certs)
 * In your instance:

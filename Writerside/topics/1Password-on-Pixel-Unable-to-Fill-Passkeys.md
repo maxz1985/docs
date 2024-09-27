@@ -15,7 +15,7 @@ Make sure `Google` is turned off
 
 ![Screenshot_20240321-164408.png](1password-on-pixel-unable-to-fill-passkeys-01.png) {thumbnail="true"}
 
-### Configure Chrome to allow 3rd Party applications to fill passkeys
+### Configure Chrome to allow third Party applications to fill passkeys
 
 Open a new tab in the phone's Chrome app and navigate to `chrome://flags`
 

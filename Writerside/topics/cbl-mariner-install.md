@@ -34,7 +34,7 @@
 ## Insert public key into authorized_keys (ssh)
 
 * copy public key into `authorized_keys` in `~/.ssh` directory on mariner (`sudo vi ~/.ssh/authorized_keys`)
-* log off ssh session and log in again, it should NOT ask for a password
+* log off ssh session and log in again, it shouldn't ask for a password
 
 ## Set static IP address
 

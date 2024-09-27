@@ -1,6 +1,6 @@
 # RDS MySQL Add On-Prem Replica
 
-AWS RDS cannot add an on-prem replica directly. 
+AWS RDS can't add an on-prem replica directly. 
 * Create a DB user to be used for replication to on-prem
 * Create RDS Read Replica in AWS
 * Confirm that replication is up to date on Replica
@@ -44,7 +44,7 @@ RDSStandby -- 2. Transfer MySQL backup file --> MySQLTarget
      ```SQL
      call mysql.rds_stop_replication;
      ```
-5.  `RDS-Stadby mysql CLI :` record latest log file name and position in the log file
+5.  `RDS-Stadby mysql CLI :` record latest log filename and position in the log file
      ```SQL
      show slave status \G
      ```
