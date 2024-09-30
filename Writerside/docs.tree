@@ -36,6 +36,7 @@
         <toc-element topic="Dates-in-ML.md"/>
         <toc-element topic="EC2-Multiple-IPs.md"/>
         <toc-element topic="EBS-Volumes.md"/>
+        <toc-element topic="ECS-Task-Definitions.md"/>
         <toc-element topic="ELB-vs-Route53-Routing.md"/>
         <toc-element topic="Export-EC2-to-S3-as-VM-Image.md"/>
         <toc-element toc-title="Federated Authentication Scenarios">
