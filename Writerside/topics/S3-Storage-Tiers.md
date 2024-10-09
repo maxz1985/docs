@@ -21,6 +21,13 @@
 | **Storage type**                        | Object                       | Object                                                                                                                                                                                                         | Object                       | Object                       | Object                           | Object                                | Object                                    |
 | **Lifecycle transitions**               | Yes                          | Yes                                                                                                                                                                                                            | Yes                          | Yes                          | Yes                              | Yes                                   | Yes                                       |
 
+> ALL S3 storage classes store three copies of data internally for durability.
+> 
+> NOTE that EXCEPT `S3 Express One Zone` and `S3 One Zone IA`, all other S3 classes spread object copies across multiple AZ.
+> 
+> Also NOTE that `RRS (Reduced Redundancy Storage)` was deprecated in October 2023. Migrate to any of the one-zone services or to standard.
+> 
+{style="note"}
 ## Storage Charges
 
 | ***S3 Standard – General purpose storage for any type of data, typically used for frequently accessed data***                                  |                           |
