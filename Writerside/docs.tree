@@ -23,6 +23,7 @@
         <toc-element topic="AWS-Services-That-Support-Resource-Policies.md"/>
         <toc-element topic="AWS-StepFunction-Workflows.md"/>
         <toc-element topic="AWS-Storage-Gateway-Tape-Gateway.md"/>
+        <toc-element topic="AWS-Storage-Gateway-Stored-Volume-Gateway.md"/>
         <toc-element topic="AWS-Systems-Manager-IAM-Policies.md"/>
         <toc-element topic="AWS-Wavelength.md"/>
         <toc-element toc-title="AWS Well Architected">
