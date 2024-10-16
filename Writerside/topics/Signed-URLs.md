@@ -1,4 +1,4 @@
-# Signed URLs
+# Signed URLs (CloudFront)
 
 Signed URLs are used to share a resource with expiration time limit and select users.
 
