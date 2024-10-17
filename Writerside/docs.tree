@@ -14,6 +14,7 @@
         <toc-element topic="Application-Portfolio-Assesment-AWS-Cloud-Migration.md"/>
         <toc-element topic="ARN-Components.md"/>
         <toc-element topic="AWS-Databases.md"/>
+        <toc-element topic="AWS-Deployment-Services.md"/>
         <toc-element topic="AWS-Direct-Connect.md"/>
         <toc-element topic="AWS-Global-Services.md"/>
         <toc-element topic="AWS-IAM-Account-level-permissions-vs-Resource-level-Permissions.topic"/>
