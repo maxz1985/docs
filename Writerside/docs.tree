@@ -70,6 +70,7 @@
         <toc-element topic="Route-53-Resolver.md"/>
         <toc-element topic="Signed-URLs.md"/>
         <toc-element topic="S3-Object-Storage.md"/>
+        <toc-element topic="S3-SSE-Encryption-Types.md"/>
         <toc-element topic="S3-Storage-Tiers.md"/>
         <toc-element topic="SCP-or-IAM-Policy-Based-on-Date-and-Time.md"/>
         <toc-element topic="VPC-Reserved-IPs.md"/>
