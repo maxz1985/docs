@@ -101,9 +101,12 @@ Note that the rest of the hosts in **VPC B** will NOT get the return traffic, th
 | ----------  | ----------       | ----------     |
 | `VPC C`     | `10.0.0.0/16`    | `Local `       |
 |             | `172.16.0.0./16` | `pcx-aaaacccc` |
-Concentrate on `VPC A` route table. What we are doing is sending ALL return traffic intended for `10.0.0.0/16` range to **VPC C** - `pcx-aaaacccc`.
-The only **exception** is the `10.0.0.77/32` host in **VPC B** whose packets will be sent via `pcx-aaaabbbb` because it is the most specific route.
+Again, look at the  `VPC A` route table.
 
-This effectively provides communication between **VPC A** and **VPC C** and ONE SINGLE HOST in VPC B.
+The route to `10.0.0.0/24` is more specific than `10.0.0.0/16`, and will be applied first.
 
-Note that the rest of the hosts in **VPC B** will NOT get the return traffic, the return traffic will go to **VPC C**. 
+This will result in sending all return traffic for `10.0.0.0/24` to **VPC B** effectively isolating the `10.0.0.0/24` communication ONLY to that VPC.
+
+Anything not matching the `10.0.0.0/24` route will be sent to **VPC C**.
+
+Since, in our case, subnets in both **VPC B** and **VPC C** have overlapping CIDR, this solution effectively chooses **only one** out of the 2 subnets for correct routing.
