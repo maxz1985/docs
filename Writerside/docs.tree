@@ -8,10 +8,11 @@
     <toc-element topic="MZ-Docs-Staring-Page.topic"/>
     <toc-element toc-title="AI">
         <toc-element topic="AI-Types.md"/>
+        <toc-element topic="Data-Analytics.md"/>
     </toc-element>
     <toc-element toc-title="AWS">
         <toc-element topic="Add-IPv6-to-an-existing-IPv4-VPC.md"/>
-        <toc-element topic="Application-Portfolio-Assesment-AWS-Cloud-Migration.md"/>
+        <toc-element topic="Application-Portfolio-Assessment-AWS-Cloud-Migration.md"/>
         <toc-element topic="ARN-Components.md"/>
         <toc-element topic="AWS-Databases.md"/>
         <toc-element topic="AWS-Deployment-Services.md"/>
@@ -44,16 +45,23 @@
         <toc-element topic="ELB-vs-Route53-Routing.md"/>
         <toc-element topic="Export-EC2-to-S3-as-VM-Image.md"/>
         <toc-element toc-title="Federated Authentication Scenarios">
-            <toc-element topic="IAM-Web-Identity-Federation.md"/>
             <toc-element topic="Federation-scenarios-summary.md"/>
-            <toc-element topic="SAML-Identity-Provider-in-IAM.md"/>
-            <toc-element topic="SAML-Federated-Access-to-AWS-Console.md"/>
-            <toc-element topic="SAML-Federated-Access-to-AWS-API.md"/>
-            <toc-element topic="Web-Identity-Federation-Cognito.md"/>
-            <toc-element topic="Custom-Identity-Broker-Federated-Access-to-AWS-Console.md"/>
-            <toc-element topic="Custom-Identity-Broker-Federated-Access-to-AWS.md"/>
             <toc-element topic="OAuth-2-0-vs-OpenID-Connect.md"/>
             <toc-element topic="Cognito-vs-IAM.md"/>
+            <toc-element toc-title="SAML IAM Federation">
+                <toc-element topic="SAML-Identity-Provider-in-IAM.md"/>
+                <toc-element topic="IAM-Roles-For-SAML-Federation.md"/>
+                <toc-element topic="SAML-Federated-Access-to-AWS-API.md"/>
+                <toc-element topic="SAML-Federated-Access-to-AWS-Console.md"/>
+            </toc-element>
+            <toc-element toc-title="Custom Identity Broker Federation">
+                <toc-element topic="Custom-Identity-Broker-Federated-Access-to-AWS.md"/>
+                <toc-element topic="Custom-Identity-Broker-Federated-Access-to-AWS-Console.md"/>
+            </toc-element>
+            <toc-element toc-title="Web Identity Federation">
+                <toc-element topic="IAM-Web-Identity-Federation.md"/>
+                <toc-element topic="Web-Identity-Federation-Cognito.md"/>
+            </toc-element>
         </toc-element>
         <toc-element topic="Firehose-Data-Transformation.md"/>
         <toc-element topic="HTTP-Headers.md"/>
@@ -94,18 +102,18 @@
     <toc-element topic="cbl-mariner-install.md"/>
     <toc-element topic="CicrleCI-Self-Hosted-Runner-Docker-Issue.md"/>
     <toc-element topic="CircleCI-Using-Self-Hosted-Runners.md"/>
-    <toc-element topic="Data-Analytics.md"/>
     <toc-element topic="Git.md"/>
     <toc-element topic="PowerShell-OhMyPosh-PSReadline-History-Picklist.md"/>
     <toc-element topic="PowerToys-Settings-Backup-And-Restore.md"/>
-    <toc-element topic="Terraformer-Reverse-Terraform.md"/>
+    <toc-element topic="Terraformer-Reverse-Terraform.md">
+    </toc-element>
+    <toc-element toc-title="Exercises">
+        <toc-element topic="N-Interesting-Polygon.md"/>
+    </toc-element>
     <toc-element toc-title="KB">
         <toc-element topic="Debugging-Flask-in-Jetbrains.md"/>
         <toc-element topic="Fix-PHP-Memory-Exhausted-InterServer.md"/>
         <toc-element topic="Upgrade-Windows-11-On-Unsupported-Hardware.md"/>
-    </toc-element>
-    <toc-element toc-title="Excercises">
-        <toc-element topic="N-Interesting-Polygon.md"/>
     </toc-element>
     <toc-element topic="Scratchpad.md"/>
 </instance-profile>

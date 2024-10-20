@@ -5,4 +5,4 @@
 3. Portfolio analysis and migration planning
 4. Continuous assessment and improvement
 
-![application-portfolio-assessment-aws-cloud-migation-01.png](application-portfolio-assessment-aws-cloud-migation-01.png) {thumbnail="true"}
+![application-portfolio-assessment-aws-cloud-migration-01.png](../images/application-portfolio-assessment-aws-cloud-migration-01.png) {thumbnail="true"}

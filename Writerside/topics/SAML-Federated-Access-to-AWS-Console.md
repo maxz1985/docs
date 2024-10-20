@@ -1,5 +1,5 @@
 # SAML Federated Access to AWS Console
-> A pre-requisite for this is to have a [](SAML-Identity-Provider-in-IAM.md)
+> A pre-requisite for this is to have a [](SAML-Identity-Provider-in-IAM.md) and [](IAM-Roles-For-SAML-Federation.md)
 > 
 {style="note"}
 

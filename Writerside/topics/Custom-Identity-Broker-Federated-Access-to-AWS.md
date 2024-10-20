@@ -15,7 +15,7 @@ Use Custom Identity Broker
 
 * The identity broker application has permissions to access IAM's token service (STS) API to create temporary security credentials. Either: 
   * **IAM user or role** the broker app will be running AS when calling `AssumeRole`
-  * **IAM user** the broker app will be running AS when calling `GetFederationToken`
+  * **IAM user** the broker app will be running AS when calling `GetFederationToken` (old style, not recommended)
 * The identity broker application is able to verify that employees are authenticated within the existing authentication system. 
 * Users are able to get a temporary URL that gives them access to the AWS Management Console (which is referred to as single sign-on).
 * IAM Role or Roles that broker will be getting STS credentials for (Roles to be assumed for the users)
