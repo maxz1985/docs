@@ -96,3 +96,11 @@ Use Custom Identity Broker
   ]
 }
 ```
+### Permissions for `GetFederatedToken`
+The federated user's effective permissions are the intersection of:
+1. The policy attached to the IAM user making the GetFederationToken call. (Policy attached to Custom Broker)
+2. The policy provided in the Policy parameter of the GetFederationToken call.
+
+This means that the federated user can't gain more permissions than the IAM user (identity broker) already possesses.
+
+This mechanism is crucial for maintaining the principle of least privilege and preventing privilege escalation.
