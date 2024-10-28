@@ -23,7 +23,7 @@ Use Custom Identity Broker
 ### Steps
 
 * Set up your on-prem Identity Provider (IdP) for Federated access
-* Broker authenticates users with your IdP using corporate data store or Active Directory Attributes
+* **Broker** authenticates users **against your IdP (LDAP)** using corporate data store or Active Directory Attributes
 * Broker gets STS credentials for the user by calling `AssumeRole`(`arg:` `RoleArn`) or `GetFederationToken`(`arg:` `FederatedUserName`, `arg:` `PolicyJSON`)
 * AWS STS returns temporary credentials to the broker
 * Broker passes the temporary credentials to corporate user
