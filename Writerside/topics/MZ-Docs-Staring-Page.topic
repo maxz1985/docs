@@ -19,9 +19,9 @@
         <!--    Add several topics that are most important for this section.    -->
         <primary>
             <title>Get Started</title>
+            <a href="AWS-Services.md" type="documents" summary="AWS">AWS</a>
             <a href="Rocky-9-Installation.md" type="documents" summary="Rocky Linux docs">Rocky Linux</a>
             <a href="Add-Paths-on-macOS.md" type="documents" summary="macOS">macOS</a>
-            <a href="AWS-Services.md" type="documents" summary="AWS">AWS</a>
         </primary>
 
         <!--    Add several topics that are less important or are relevant only for advanced/experienced users.    -->
