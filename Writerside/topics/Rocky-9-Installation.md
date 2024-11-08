@@ -121,6 +121,11 @@ typeset -g POWERLEVEL9K_OS_ICON_BACKGROUND=8
 vi .zshrc
 ```
 Add the following line
-```Shell
-source /usr/share/fzf/shell/key-bindings.zsh
-```
+<tabs>
+    <tab title="RedHat">
+        <code-block lang="shell">source /usr/share/fzf/shell/key-bindings.zsh</code-block>
+    </tab>
+    <tab title="Ubuntu">
+        <code-block lang="shell">source /usr/share/doc/fzf/examples/key-bindings.bash</code-block>
+    </tab>
+</tabs>
