@@ -128,4 +128,7 @@ Add the following line
     <tab title="Ubuntu">
         <code-block lang="shell">source /usr/share/doc/fzf/examples/key-bindings.bash</code-block>
     </tab>
+    <tab title="macOS">
+        <code-block lang="shell">[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh</code-block>
+    </tab>
 </tabs>
