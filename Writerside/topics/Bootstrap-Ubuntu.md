@@ -12,6 +12,10 @@ From another machine, copy your public key to Ubuntu for password-less ssh acces
 ```shell
 ssh-copy-id -i {your_ssh_public_key}.pub {ubuntu_box_username}@{ubuntu_box_ip_address}
 ```
+## Set hostname
+```shell
+sudo hostnamectl set-hostname {new_hostname}
+```
 ## Set Static IP in Netplan
 ```shell
 cd /etc/netplan/
