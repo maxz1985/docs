@@ -128,6 +128,9 @@ cd /etc/systemd/system/
 mkdir kubelet.service.d/
 ```
 ```shell
+cd kubelet.service.d
+```
+```shell
 vi 20-allow-swap.conf
 ```
 Content:
