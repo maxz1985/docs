@@ -117,6 +117,30 @@ Hold `Kubeadm` package versions during regular apt updates (to prevent automatic
 ```Shell
 sudo apt-mark hold kubelet kubeadm kubectl
 ```
+Enalble swap for kubelet.
+```shell
+sudo su
+```
+```shell
+cd /etc/systemd/system/
+```
+```shell
+mkdir kubelet.service.d/
+```
+```shell
+vi 20-allow-swap.conf
+```
+Content:
+```shell
+[Service]
+Environment="KUBELET_EXTRA_ARGS=--fail-swap-on=false"
+```
+```shell
+exit
+```
+```shell
+sudo systemctl daemon-reload
+```
 Enable `kubelet` before running `kubeadm`
 ```Shell
 sudo systemctl enable --now kubelet
