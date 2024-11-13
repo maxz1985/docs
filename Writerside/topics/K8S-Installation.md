@@ -117,7 +117,7 @@ Hold `Kubeadm` package versions during regular apt updates (to prevent automatic
 ```Shell
 sudo apt-mark hold kubelet kubeadm kubectl
 ```
-Enalble swap for kubelet.
+Enable swap for kubelet.
 ```shell
 sudo su
 ```
