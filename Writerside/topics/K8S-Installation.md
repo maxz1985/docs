@@ -1,26 +1,44 @@
 # K8S Installation
-
 This document was created on _Ubuntu_
+
+## Node preparation
 >Make sure your machine (or VM) has at least **2 vCPU**
 > 
 {style="note"}
-## Make sure `product_uuid` is unique for every node (especially important for cloned VMs)
+### Make sure `product_uuid` is unique for every node (especially important for cloned VMs)
 ```shell
  sudo cat /sys/class/dmi/id/product_uuid
 ```
 ```shell
 034c8473-3064-4ab3-9f84-1a4ddf32bf4f
 ```
-## Disable swap
+### Disable swap
 ```Shell
 sudo vi /etc/fstab
 ```
-Comment out the swap line
+Comment the swap line
 ```Shell
 # /swap.img     none    swap    sw      0       0
 ```
 ```Shell
 sudo swapoff -a
+```
+```shell
+sudo rm -rf /swap.img
+```
+### Networking
+Enable IPv4 packet forwarding and allow `iptables` to see bridged traffic
+```shell
+echo "net.ipv4.ip_forward=1" | sudo tee -a  /etc/sysctl.conf
+```
+```shell
+sudo tee -a /etc/sysctl.conf << 'EOL'
+net.bridge.bridge-nf-call-iptables  = 1
+net.bridge.bridge-nf-call-ip6tables = 1
+EOL
+```
+```shell
+sudo sysctl -p
 ```
 Reboot
 ## Install container runtime (`containerd` (Docker))
@@ -94,16 +112,21 @@ On `Linux` Docker log files are located in
 /var/lib/docker/containers/{container_id}/{container_id}-json.log
 ```
 ## Enable `CRI` for `containerd`
-```Shell
-sudo vim /etc/containerd/config.toml
+```shell
+sudo su
 ```
-Change line `disabled_plugins = ["cri"]` to
 ```Shell
-disabled_plugins = []
+rm -rf /etc/containerd/config.toml
 ```
-Restart `containerd`
-```Shell
-sudo systemctl restart containerd
+```shell
+containerd config default > /etc/containerd/config.toml
+```
+```shell
+vi /etc/contaierd/config.toml
+```
+Change line `SystemdCgroup = false` to
+```shell
+SystemdCgroup = true
 ```
 ## Install `Kubeadm`
 Install required packages
@@ -134,14 +157,30 @@ Enable `kubelet` before running `kubeadm`
 sudo systemctl enable --now kubelet
 ```
 ## Initialize cluster on master node
+> If you don't specify `--pod-network-cidr`, a random CIDR will be chosen by `kubeadm init`
+> 
+> To change the CIDR _after_ `kubeadm init`, you will have to _reinstall the cluster_.
+> 
+{style="warning"}
 ```Shell
-sudo kubeadm init
+sudo kubeadm init --pod-network-cidr=10.76.0.0/16
 ```
-> Take note of the `join` command from the `init` output - you will need that exact command to join other nodes to this cluster.
+> Take note of the `join` command from the `init` output – you will need that exact command to join other nodes to this cluster.
 > 
 > `kubeadm join {control_palne_io}:6443 --token {token} --discovery-token-ca-cert-hash sha256:{ca_cert_hash}`
 > 
+> You can regenerate the join command at any time but running:
+> ```shell
+>kubeadm token create --print-join-command
+>```
 {style="note"}
+> _K8s tokens expire after 24 hours by default_.
+> 
+> To check if you have active token run on master `kubeadm token list`.
+> 
+> If no tokens are present, regenerate the join command.
+> 
+{style="warning"}
 ### After init
 Make `kubectl` work for your non-root user:
 ```Shell
