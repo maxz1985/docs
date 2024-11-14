@@ -11,6 +11,18 @@ This document was created on _Ubuntu_
 ```shell
 034c8473-3064-4ab3-9f84-1a4ddf32bf4f
 ```
+## Disable swap
+```Shell
+sudo vi /etc/fstab
+```
+Comment out the swap line
+```Shell
+# /swap.img     none    swap    sw      0       0
+```
+```Shell
+sudo swapoff -a
+```
+Reboot
 ## Install container runtime (`containerd` (Docker))
 ### Remove default docker packages
 ```shell
@@ -116,33 +128,6 @@ sudo apt-get install -y kubelet kubeadm kubectl -y
 Hold `Kubeadm` package versions during regular apt updates (to prevent automatic upgrades)
 ```Shell
 sudo apt-mark hold kubelet kubeadm kubectl
-```
-Enable swap for kubelet.
-```shell
-sudo su
-```
-```shell
-cd /etc/systemd/system/
-```
-```shell
-mkdir kubelet.service.d/
-```
-```shell
-cd kubelet.service.d
-```
-```shell
-vi 20-allow-swap.conf
-```
-Content:
-```shell
-[Service]
-Environment="KUBELET_EXTRA_ARGS=--fail-swap-on=false"
-```
-```shell
-exit
-```
-```shell
-sudo systemctl daemon-reload
 ```
 Enable `kubelet` before running `kubeadm`
 ```Shell
