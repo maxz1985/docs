@@ -128,6 +128,7 @@ Change line `SystemdCgroup = false` to
 ```shell
 SystemdCgroup = true
 ```
+Reboot
 ## Install `Kubeadm`
 Install required packages
 ```Shell
