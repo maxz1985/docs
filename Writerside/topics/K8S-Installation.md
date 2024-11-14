@@ -133,3 +133,27 @@ Enable `kubelet` before running `kubeadm`
 ```Shell
 sudo systemctl enable --now kubelet
 ```
+## Initialize cluster on master node
+```Shell
+sudo kubeadm init
+```
+> Take note of the `join` command from the `init` output - you will need that exact command to join other nodes to this cluster.
+> 
+> `kubeadm join {control_palne_io}:6443 --token {token} --discovery-token-ca-cert-hash sha256:{ca_cert_hash}`
+> 
+{style="note"}
+### After init
+Make `kubectl` work for your non-root user:
+```Shell
+mkdir -p $HOME/.kube
+```
+```Shell
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+```
+```Shell
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+```
+## Install Calico network plug in
+```Shell
+kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.29.0/manifests/tigera-operator.yaml
+```
