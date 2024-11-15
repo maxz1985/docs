@@ -26,6 +26,31 @@ sudo swapoff -a
 ```shell
 sudo rm -rf /swap.img
 ```
+### Load required Kernel modules
+`overlay` module provides support for `OverlayFS` which is a filesystem used by container runtimes to layer the
+container’s root filesystem over the host filesystem.
+
+`br_netfilter` module provides support for packet filtering in Linux bridge networks based on various criteria,
+such as source and destination IP address, port numbers, and protocol type.
+```Shell
+echo 'overlay
+br_netfilter' | sudo tee /etc/modules-load.d/kubernetes.conf
+```
+```Shell
+sudo modprobe overlay
+```
+```Shell
+sudo modprobe br_netfilter
+```
+Check
+```Shell
+sudo lsmod | grep -E "overlay|br_netfilter"
+```
+```Shell
+br_netfilter           32768  0
+bridge                421888  1 br_netfilter
+overlay               212992  0
+```
 ### Networking
 Enable IPv4 packet forwarding and allow `iptables` to see bridged traffic
 ```shell
@@ -46,7 +71,7 @@ Reboot
 ```shell
 for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
 ```
-### Install Docker using apt repository
+### Install Docker's apt repository
 Add official Docker GPG Key
 ```Shell
 sudo apt-get install ca-certificates curl -y
@@ -122,7 +147,7 @@ rm -rf /etc/containerd/config.toml
 containerd config default > /etc/containerd/config.toml
 ```
 ```shell
-vi /etc/contaierd/config.toml
+vi /etc/containerd/config.toml
 ```
 Change line `SystemdCgroup = false` to
 ```shell
@@ -194,6 +219,87 @@ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 ## Install Calico network plug in
+Install tigera operator
 ```Shell
 kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.29.0/manifests/tigera-operator.yaml
+```
+Download custom resources manifest
+```Shell
+wget https://raw.githubusercontent.com/projectcalico/calico/v3.29.0/manifests/custom-resources.yaml
+```
+Change `cidr: 192.168.0.0/16` to match the CIDR you used in `kubeadm init`
+```Shell
+vi custom-resources.yaml
+```
+```Shell
+cidr: 10.76.0.0/16
+```
+Install `Calico` by applying custom resources manifest 
+```Shell
+kubectl create -f custom-resources.yaml
+```
+Check that all containers are in the `Running` status. Especially all calico and coredns
+```Shell
+kubectl get pods --all-namespaces
+```
+```Shell
+NAMESPACE          NAME                                       READY   STATUS    RESTARTS   AGE
+calico-apiserver   calico-apiserver-7f495874df-7z7th          1/1     Running   0          76s
+calico-apiserver   calico-apiserver-7f495874df-qlrpw          1/1     Running   0          76s
+calico-system      calico-kube-controllers-7fb658ff7f-jdj24   1/1     Running   0          74s
+calico-system      calico-node-vk7nj                          1/1     Running   0          75s
+calico-system      calico-typha-6bff78b46-gzt52               1/1     Running   0          75s
+calico-system      csi-node-driver-lr75v                      2/2     Running   0          75s
+kube-system        coredns-7c65d6cfc9-mkwhj                   1/1     Running   0          21m
+kube-system        coredns-7c65d6cfc9-rt7xl                   1/1     Running   0          21m
+kube-system        etcd-k8smaster                             1/1     Running   0          21m
+kube-system        kube-apiserver-k8smaster                   1/1     Running   0          21m
+kube-system        kube-controller-manager-k8smaster          1/1     Running   0          21m
+kube-system        kube-proxy-h5ks9                           1/1     Running   0          21m
+kube-system        kube-scheduler-k8smaster                   1/1     Running   0          21m
+tigera-operator    tigera-operator-f8bc97d4c-g8tg2            1/1     Running   0          12m
+```
+## Check that your node is now ready
+```Shell
+kubectl get nodes -o wide
+```
+```Shell
+NAME        STATUS   ROLES           AGE   VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION     CONTAINER-RUNTIME
+k8smaster   Ready    control-plane   28m   v1.31.2   10.74.8.12    <none>        Ubuntu 24.04.1 LTS   6.8.0-48-generic   containerd://1.7.23
+```
+## Install `calicoctl`
+```Shell
+cd /usr/local/bin
+```
+```Shell
+sudo curl -L https://github.com/projectcalico/calico/releases/download/v3.29.0/calicoctl-linux-amd64 -o calicoctl
+```
+```Shell
+sudo chmod +x ./calicoctl
+```
+## Node install and add
+### Prepare the node by performing the following steps on each node
+1. [](#node-preparation)
+2. [](#install-container-runtime-containerd-docker)
+3. [](#enable-cri-for-containerd)
+4. [](#install-kubeadm)
+### Join worker to the cluster
+**ON MASTER**, generate the join command
+```Shell
+kubeadm token create --print-join-command
+```
+Copy the join command **onto the node** and run it
+
+(do not use the example command below, it is specific to each cluster)
+```Shell
+sudo kubeadm join 1.1.1.1:6443 --token cc8t23.4f8qxn4xao21lx66 --discovery-token-ca-cert-hash sha256:d4175f1e927b33e03e0cc3812deaa96f171ed652da2249d6985818a69b81dddd
+```
+After completion list nodes **on master** - the new node should be ready
+```Shell
+kubectl get nodes
+```
+```Shell
+NAME          STATUS   ROLES           AGE   VERSION
+k8smaster     Ready    control-plane   83m   v1.31.2
+k8sworker01   Ready    <none>          36s   v1.31.
 ```
