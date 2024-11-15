@@ -65,7 +65,6 @@ EOL
 ```shell
 sudo sysctl -p
 ```
-Reboot
 ## Install container runtime (`containerd` (Docker))
 ### Remove default docker packages
 ```shell
