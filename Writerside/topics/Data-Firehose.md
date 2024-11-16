@@ -33,12 +33,14 @@ flowchart LR
 ## Save Kinesis Streams Data to S3
 
 `Kinesis Data Streams` can be saved to `S3` for backup and archiving purposes using `Data Firehose` with a **Delivery Stream**
+
 ![data-firehose-01.png](data-firehose-01.png) {thumbnail="true"}
 
 Alternatively, you can use a *Consumer* which is an `Amazon Kinesis Data Streams Application` that you develop to 
 read data from the streams and output to a specific destination.
 
 One of those consumers is [`Amazon Kinesis S3 Connector`](https://github.com/amazon-archives/amazon-kinesis-connectors?tab=readme-ov-file) 
+
 ![data-firehose-02.png](data-firehose-02.png) {thumbnail="true"}
 
 ## High-Level Architecture of Kinesis _Data Streams_
