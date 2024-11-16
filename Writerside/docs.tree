@@ -123,7 +123,11 @@
         <toc-element topic="Upgrade-Windows-11-On-Unsupported-Hardware.md"/>
     </toc-element>
     <toc-element toc-title="Kubernetes">
-        <toc-element topic="K8S-Installation.md"/>
+        <toc-element topic="K8S-Installation.md">
+        </toc-element>
+        <toc-element topic="Install-K8s-Dashboard.md"/>
+        <toc-element topic="Install-K9s.md"/>
+        <toc-element topic="Install-Kubectl.md"/>
     </toc-element>
     <toc-element topic="Scratchpad.md"/>
 </instance-profile>
