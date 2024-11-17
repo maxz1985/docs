@@ -10,8 +10,11 @@ Check the version of the latest K8s release at [](https://kubernetes.io/releases
         <code-block lang="Bash"> sudo chown root: /usr/local/bin/kubectl</code-block>
         <p>Install shell completion. Add the following to your <code>.zshrc</code> file:</p>
         <code-block lang="bash"> source &lt;(kubectl completion zsh)</code-block>
+        <warning><emphasis>RESTART YOUR TERMINAL.</emphasis> There is a unique behavior on <code>macOS</code>: unless the terminal application is restarted after installing and configuring <code>kubectl</code>, you will get <code>"no route to host" when connecting to the cluster</code></warning>
     </tab>
     <tab title="Ubuntu">
+        <code-block lang="Bash">curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"</code-block>
+        <code-block lang="Bash">sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl</code-block>
     </tab>
     <tab title="Windows">
         <p>Start <i>Administrative</i> PowerShell</p>

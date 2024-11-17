@@ -6,6 +6,9 @@ Check the latest K9s release on GitHub [](https://github.com/derailed/k9s)
 > 
 {style="note"}
 <tabs>
+    <tab title="macOS">
+        <code-block lang="Bash">brew install derailed/k9s/k9s</code-block>
+    </tab>
     <tab title="Ubuntu">
         <p>Note the latest release version, for example <code>v0.32.6</code></p>
         <p>Run the installation command substituting <code>{version}</code> with the version you intend to install.</p>
@@ -18,7 +21,8 @@ Check the latest K9s release on GitHub [](https://github.com/derailed/k9s)
     </tab>
 </tabs>
 
-`K9s` uses the same `K8s` configuration as `kubectl`. So if you have `kubectl` configured on your machine, simply run:
+`K9s` uses the same `K8s` configuration as `kubectl`.
+So [after `kubectl` is configured on your machine](Install-Kubectl.md), run:
 ```Shell
 k9s
 ```
