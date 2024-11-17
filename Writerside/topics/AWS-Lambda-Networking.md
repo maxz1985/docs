@@ -11,6 +11,14 @@
 {style="note"}
 
 The internet access should be provided through the VPC Lambda is connected to.
+> **Consider Lambda Concurrency**
+> 
+> When `Lambda` is connected to a `VPC`, the `VPC ENI` **will acquire a separate IP address** from the subnet **for each invocation**.
+> 
+> This means that your subnet should have **enough free IP space** to support _high concurrency__ invocation scenarios.
+> 
+> If IP space is exhausted, you may get `EC2ThrottledException`
+{style="warning"}
 
 ![aws-lambda-networking-02.png](aws-lambda-networking-02.png){thumbnail="true"}
 
