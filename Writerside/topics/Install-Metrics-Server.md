@@ -515,3 +515,15 @@ spec:
 ```bash
 kubectl apply -f components.yaml
 ```
+
+## Verify installation
+```Bash
+kubectl get deployment metrics-server -n kube-system
+```
+```Bash
+NAME             READY   UP-TO-DATE   AVAILABLE   AGE
+metrics-server   1/1     1            1           6h28m
+```
+```Bash
+kubectl get pods m* -n kube-system | grep metrics
+```
