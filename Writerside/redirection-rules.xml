@@ -34,4 +34,8 @@
         <description>Created after removal of "google_search" from Documentation</description>
         <accepts>google-search.html</accepts>
     </rule>
+    <rule id="4e100468">
+        <description>Created after removal of "CloudFront Launch with Latest AMI" from Documentation</description>
+        <accepts>CloudFront-Launch-with-Latest-AMI.html</accepts>
+    </rule>
 </rules>

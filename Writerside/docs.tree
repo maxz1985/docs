@@ -35,6 +35,7 @@
         <toc-element toc-title="AWS Well Architected">
             <toc-element topic="Pillars.md"/>
         </toc-element>
+        <toc-element topic="CloudFormation-Launch-with-Latest-AMI.md"/>
         <toc-element topic="CloudFront-Field-Level-Encryption.md"/>
         <toc-element topic="CloudTrail-Event-History-vs-Logs.md"/>
         <toc-element topic="Create-an-instance-store-backed-Linux-AMI.md"/>
