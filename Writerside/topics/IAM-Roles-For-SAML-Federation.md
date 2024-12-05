@@ -1,8 +1,12 @@
 # IAM Roles For SAML Federation
 
 In order for federated users to perform actions in AWS, they have to assume an **IAM Role**.
+> If there is a requirement to use different levels of access like `Dev` and `Test` – create a `Permission Policy` and `IAM Role` for each group.
+> 
+> Each Role will have the **same** Trust Policy but **its own** Permission Policy
+
 The roles SAML users assume have to have:
-* A `Trust Policy` that allows the `IAM IdP` to assume the roles on their behalf.
+* A `Trust Policy` that allows the `IAM IdP` to **authenticate** users.
 * A `Permission Policy` which determines what the user can do in AWS.
 
 ## Trust Policy
@@ -26,9 +30,9 @@ The roles SAML users assume have to have:
   ]
 }
 ```
-NOTE:
-* The `Principal` of the Trust Policy is the `ARN` of the IAM IdP that you set up in [](SAML-Identity-Provider-in-IAM.md)
-* The `Action` allowed is `sts:AssumeRoleWithSAML`
+> * The `Principal` of the Trust Policy is the `ARN` of the `SAML Provider` that you set up in [](SAML-Identity-Provider-in-IAM.md)
+> * The `Action` allowed is `sts:AssumeRoleWithSAML`
+> * Even though `SAML Provider` is the `Principal` of the trust policy, it doesn't assume the role, only authenticates federated user. This is specific to a trust policy used for federation.
 
 ## Permission Policy (access S3 bucket matching username)
 ```json
@@ -53,19 +57,38 @@ NOTE:
   ]
 }
 ```
-NOTE:
-For this to work, you on-prem SAML IdP should be configured to send `username` attribute in the SAML Assertion
+## SAML Assertion
+
+Configure your `External On-Prem IdP` to send required **attributes** in the SAML assertion.
+
+For the Permission Policy above, we should send the `username` attribute. 
+
+When using multiple IAM Roles based on user's group membership,
+send `Role` attribute indicating which role the user is allowed to assume.
 ```xml
-<!-- User's Username -->
-<Attribute Name="https://aws.amazon.com/SAML/Attributes/PrincipalTag:username">
-  <AttributeValue>john.doe</AttributeValue>
-</Attribute>
+<saml:AttributeStatement>
+    <!-- User's Username -->
+    <Attribute Name="https://aws.amazon.com/SAML/Attributes/PrincipalTag:username">
+        <AttributeValue>john.doe</AttributeValue>
+    </Attribute>
+    <!-- User's Role -->
+    <Attribute Name="https://aws.amazon.com/SAML/Attributes/Role">
+        <AttributeValue>arn:aws:iam::AWS_ACCOUNT_ID:role/DevRole,arn:aws:iam::AWS_ACCOUNT_ID:saml-provider/YOUR_SAML_PROVIDER_NAME</AttributeValue>
+    </Attribute>
+</saml:AttributeStatement>
 ```
 ## Create a role
 
-Finally, create a role like `S3FederatedSAMLAccess` and attach **both** the `Trust Policy` and `Permission Policy` to the role.
+Finally, create a role like `S3FederatedSAMLAccessDev`
+and attach **both** the `Trust Policy` and the`Permission Policy` to the role.
 
-NOTES: When a user makes an `AssumeRoleWithSAML` call, one of the arguments will be the `SAML Assertion` which contains `username` and `Role` attributes.
+User calls `AssumeRoleWithSAML` providing the following parameters: (`SAML Assertion`, `ARN of IAM Role to assume`, `ARN of the SAML Provider`)
 
-The `SAML Assertion` comes from the on-prem IdP after successful authentication.
+The `SAML Assertion` comes from the `External On-Prem IdP` after successful authentication.
+```bash
+aws sts assume-role-with-saml \
+  --role-arn arn:aws:iam::123456789012:role/DevRole \
+  --principal-arn arn:aws:iam::123456789012:saml-provider/YourSAMLProvider \
+  --saml-assertion file://saml_assertion.txt
 
+```

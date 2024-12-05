@@ -40,7 +40,6 @@
         <toc-element topic="CloudTrail-Event-History-vs-Logs.md"/>
         <toc-element topic="Create-an-instance-store-backed-Linux-AMI.md"/>
         <toc-element topic="Cross-Account-Access.md"/>
-        <toc-element topic="Custom-Identity-Broker-Access-To-AWS.md"/>
         <toc-element topic="Data-Firehose.md"/>
         <toc-element topic="Dates-in-ML.md"/>
         <toc-element topic="EC2-Multiple-IPs.md"/>
@@ -62,6 +61,7 @@
             <toc-element toc-title="Custom Identity Broker Federation">
                 <toc-element topic="Custom-Identity-Broker-Federated-Access-to-AWS.md"/>
                 <toc-element topic="Custom-Identity-Broker-Federated-Access-to-AWS-Console.md"/>
+                <toc-element topic="Custom-Identity-Broker-Access-To-AWS.md"/>
             </toc-element>
             <toc-element toc-title="Web Identity Federation">
                 <toc-element topic="IAM-Web-Identity-Federation.md"/>
