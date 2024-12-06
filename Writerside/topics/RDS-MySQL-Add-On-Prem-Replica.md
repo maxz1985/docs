@@ -1,5 +1,17 @@
 # RDS MySQL Add On-Prem Replica
 
+> By default, RDS does not encrypt the connection between master and read replica.
+> 
+> When in AWS, the replication traffic remains within secure AWS network.
+> 
+> When replicating to an **on-prem** replica, by default the channel is NOT secure.
+> 
+> While SSL for replication channel can be configured, it is **NOT enough for a secure setup**.
+> 
+> RDS is normally deployed on a **private subnet** therefore **a VPN connection is required** for a secure setup.
+> 
+{style="note"}
+
 AWS RDS can't add an on-prem replica directly. 
 * Create a DB user to be used for replication to on-prem
 * Create RDS Read Replica in AWS
@@ -18,13 +30,13 @@ graph LR
     subgraph Cloud
         RDSActive((RDS Active))
         RDSStandby[RDS Standby]
-        RDSActive -- 1. Temporary replication --> RDSStandby
+        RDSActive -- "1 Temporary replication" --> RDSStandby
     end
     subgraph OnPrem
         MySQLTarget((MySQL Target))
     end
-RDSActive-- 3. Final Replication --> MySQLTarget
-RDSStandby -- 2. Transfer MySQL backup file --> MySQLTarget
+RDSActive-- "3 Final Replication" --> MySQLTarget
+RDSStandby -- "2 Transfer MySQL backup file" --> MySQLTarget
 ```
 | Server         | Purpose                                                                                 |
 |----------------|-----------------------------------------------------------------------------------------|
