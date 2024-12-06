@@ -8,8 +8,33 @@ There are three types of policies that can be attached to an IAM Role.
 | Trust Policy                              | The trust policy defines which principals can assume the role, and under which conditions. A trust policy is a specific type of resource-based policy for IAM roles.                                                                                                                          |
 | Permission Boundary                       | A permissions boundary is an advanced feature for using a managed policy to set the maximum permissions for a role. A principal’s permissions boundary allows it to perform only the actions that are allowed by both its identity-based permissions policies and its permissions boundaries. |
 
+> When an EC2 is assigned an IAM Role (for example, to access S3),
+> the role **must have a Trust Policy** as well as Permission Policy.
+> Here is the Trust Policy:
+> ```json
+>{
+>   "Version": "2012-10-17",
+>   "Statement": [
+>       {
+>         "Effect": "Allow",
+>         "Principal": {
+>            "Service": "ec2.amazonaws.com"
+>         },
+>         "Action": "sts:AssumeRole"
+>       }
+>   ]
+>}
+>```
+> The Trust Policy is **required** because when EC2 is assuming the Role, the EC2 service has to perform `sts:AssumeRole` which is permitted by this Trust Policy.
+>
+> When EC2 assumes the IAM role, STS generates temporary credentials which are stored in the EC2 metadata.
+> 
+> When using `AWS Console` to assign an IAM Role to EC2, the Console will **create a Trust Policy automatically** essenctially hiding this important step in the process.
+> 
+> When using CLI or IaC tools, the Trust Policy has to be explicitly created.
+{style="note"}
 
-Example **Identity-Based** (permission) policy:
+## **Identity-Based** (Permission) Policy
 
 Allow read access to S3.
 ```json
@@ -25,7 +50,7 @@ Allow read access to S3.
 }
 ```
 
-Example **Trust** policy:
+## **Trust** Policy
 
 Allow Google Web Identity Provider to perform `AssumeRoleWithWebIdentity` for IAM Web Identity Federation
 ```json
@@ -46,7 +71,7 @@ Allow Google Web Identity Provider to perform `AssumeRoleWithWebIdentity` for IA
 }
 ```
 
-Example **Permission Boundary** policy
+## **Permission Boundary** Policy
 
 > **Permission Boundary** Doesn't Grant Permissions on Its Own
 > 
