@@ -12,6 +12,7 @@ Use Custom Identity Broker
 ![custom-identity-broker-federated-access-to-aws-01.png](custom-identity-broker-federated-access-to-aws-01.png) {thumbnail="true"}
 
 ### Prerequisites
+>When the Custom Identity Broker runs on-prem, use TPM, HSM or HashiCorp Vault to store **broker's own IAM credentials**
 
 * The identity broker application has permissions to access IAM's token service (STS) API to create temporary security credentials. Either: 
   * **IAM user or role** the broker app will be running AS when calling `AssumeRole`
