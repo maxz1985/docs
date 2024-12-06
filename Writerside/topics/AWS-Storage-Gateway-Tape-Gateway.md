@@ -1,4 +1,4 @@
-# AWS Storage Gateway Tape Gateway
+# Storage Gateway Tape Gateway
 
 > An on-prem appliance representing a VTL (Virtual Tape Library) used to replace a physical tape changer.
 > 

@@ -1,4 +1,4 @@
-# AWS Direct Connect
+# Direct Connect
 
 ## LAG (LACP)
 LAG (Link Aggregation Group) can be used with Direct Connect if you ordered more than one connection to an AWS Direct Connect Endpoint.

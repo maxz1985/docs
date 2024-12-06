@@ -1,4 +1,4 @@
-# AWS Systems Manager IAM Policies
+# Systems Manager IAM Policies
 
 Suppose you need an _IAM policy_ to allow an application to decrypt _CMK-encrypted SecureStrings_
 stored in _Systems Manager Parameter Store_. We should only allow access to parameters that start with `prod-`

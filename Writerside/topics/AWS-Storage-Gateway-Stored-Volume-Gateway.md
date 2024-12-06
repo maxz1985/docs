@@ -1,4 +1,4 @@
-# AWS Storage Gateway Stored Volume Gateway
+# Storage Gateway Stored Volume Gateway
 
 ![aws-storage-gateway-stored-volume-gateway-01.png](aws-storage-gateway-stored-volume-gateway-01.png) {thumbnail="true"}
 

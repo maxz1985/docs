@@ -1,4 +1,4 @@
-# AWS Wavelength
+# Wavelength
 
 ## Accessing the internet from a Wavelength zone
 

@@ -1,4 +1,4 @@
-# AWS Lambda Permissions
+# Lambda Permissions
 <tldr>
     <p>Minimal permissions required are granting access to `CloudWatch`.</p>
     <p>They're provided by `AWSLambdaBasicExecutionRole` managed policy.</p>

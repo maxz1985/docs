@@ -1,4 +1,4 @@
-# AWS Lambda Networking
+# Lambda Networking
 
 ## Customer VPC connected Lambda
 
