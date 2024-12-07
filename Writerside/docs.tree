@@ -20,6 +20,7 @@
         <toc-element topic="AWS-Deployment-Services.md"/>
         <toc-element topic="AWS-Global-Services.md"/>
         <toc-element topic="AWS-Migration-Strategies-The-6Rs.md"/>
+        <toc-element topic="AWS-Organizations-and-Private-Marketplace.md"/>
         <toc-element topic="AWS-Services.md"/>
         <toc-element topic="AWS-Services-That-Support-Resource-Policies.md"/>
         <toc-element toc-title="AWS Well Architected">
