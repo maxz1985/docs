@@ -1,23 +1,54 @@
 # AWS Organizations and Private Marketplace
 
-AWS Provides private marketplace to create curated catalog Public Marketplace offerings available only to your Organization.
+AWS Provides a `Private Marketplace`
+to create a curated catalog of `Public Marketplace` offerings available only to your `AWS Organization`.
 
-Private Marketplace can be instantiated in a management account of the AWS Organization.
+`Private Marketplace` can be instantiated in a **management** account of the `AWS Organization`.
 
-Following is the best practice approach to administering Private Marketplace.
+## Here is _best practice approach_ to administering `Private Marketplace`.
 
-The organization contains multiple OUs each with multiple accounts.
+Typical `AWS Organization` contains multiple `OU`s _each with multiple accounts_.
 
-In each OU there is an account nominated to be a "Shared Services Account" 
-serving a special purpose of hosting resources common to all other accounts in the OU. 
-(like Git server that all accounts  in the OU are using )
-
+In **each** `OU`, there is an account nominated to be a **Shared Services Account** 
+serving a special purpose of hosting common resources for all other accounts in the `OU`. 
+(like a Git server that all accounts in the OU are using)
 
 1. Create an IAM role named `procurement-manager-role` in **each** of the _Shared Services Accounts_.
-2. Add the `AWSPrivateMarketplaceAdminFullAccess` managed policy to the role.
-3. Create an organization root-level SCP to deny permissions to administer _Private Marketplace_ to everyone except `procurement-manager-role`
-4. Create another organization root-level SCP to deny permissions to create the `procurement-manager-role` to everyone in the organization 
+2. Add the [`AWSPrivateMarketplaceAdminFullAccess`](#awsprivatemarketplaceadminfullaccess-managed-permission-policy) managed policy to the role.
+3. [Create an organization root-level SCP to deny permissions to administer `Private Marketplace` to everyone except `procurement-manager-role`](#scp-to-deny-permissions-to-administer-private-marketplace-to-everyone-except-the-procurement-manager-role)
+4. [Create another organization root-level SCP to deny permissions to create the `procurement-manager-role` to everyone in the organization](#scp-to-deny-permission-to-create-the-procurement-manager-role-to-everyone-in-the-organization) 
 
+```mermaid
+---
+title: AWS Organizaion
+---
+flowchart TD
+    AWS_Organization("AWS Organization")
+    scp_deny_admin((Root SCP to deny Private Marketplace administration to everyone but procurement-manager-role))
+    scp_deny_create_role((Root SCP to deny creation of procurement-manager-role to everyone))
+    scp_deny_create_role--> AWS_Organization
+    scp_deny_admin --> AWS_Organization
+```
+```Mermaid
+---
+title: Management Account
+---
+flowchart TD
+    private_marketplace("Private Marketplace Service")
+```
+```mermaid
+---
+title: Shared Services Account in OU
+---
+flowchart TD
+    procurement_user("IAM User in Shared Services account allowed to administer Private Marketplace")
+    procurement_management_role[["procurement-management-role"]]
+    pm_role_permission_policy(("AWSPrivateMarketplaceAdminFullAccess Managed Permission Policy"))
+    pm_role_trust_policy{{"Trust Policy allowing specific users to assume the role"}}
+    procurement_management_role --> procurement_user
+    pm_role_permission_policy --> procurement_management_role
+    pm_role_trust_policy --> procurement_management_role
+```
 ## SCP to deny permissions to administer `Private Marketplace` to everyone except the `procurement-manager-role`
 ```JSON
 {
@@ -46,14 +77,14 @@ serving a special purpose of hosting resources common to all other accounts in t
          "Resource": "*",
          "Condition": {
             "StringNotLike": {
-               "aws:PrincipalARN": "arn:aws:iam::*:role/procurement-manager"
+               "aws:PrincipalARN": "arn:aws:iam::*:role/procurement-manager-role"
             }
          }
       }
    ]
 }
 ```
-## SCP to deny permissions to create the `procurement-manager-role` to everyone in the organization
+## SCP to deny permission to create the `procurement-manager-role` to everyone in the organization
 ```JSON
 {
     "Version": "2012-10-17",
@@ -72,6 +103,25 @@ serving a special purpose of hosting resources common to all other accounts in t
     ]
 }
 
+```
+## A trust policy to allow procurement users in the shared services account to assume the `procurement-manager-role` 
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": [
+                    "arn:aws:iam::<shared-services-account-id>:user/User1",
+                    "arn:aws:iam::<shared-services-account-id>:user/User2",
+                    "arn:aws:iam::<shared-services-account-id>:user/User3"
+                ]
+            },
+            "Action": "sts:AssumeRole"
+        }
+    ]
+}
 ```
 ## `AWSPrivateMarketplaceAdminFullAccess` Managed Permission Policy
 ```JSON
