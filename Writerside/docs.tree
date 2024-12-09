@@ -21,6 +21,7 @@
         <toc-element topic="AWS-Global-Services.md"/>
         <toc-element topic="AWS-Migration-Strategies-The-6Rs.md"/>
         <toc-element topic="AWS-Organizations-and-Private-Marketplace.md"/>
+        <toc-element topic="AWS-Permission-Evaluation.md"/>
         <toc-element topic="AWS-Services.md"/>
         <toc-element topic="AWS-Services-That-Support-Resource-Policies.md"/>
         <toc-element toc-title="AWS Well Architected">
@@ -94,6 +95,7 @@
             <toc-element topic="S3-Storage-Tiers.md"/>
         </toc-element>
         <toc-element toc-title="SCP">
+            <toc-element topic="Allow-Statements-in-SCP-are-Useless-mostly.md"/>
             <toc-element topic="SCP-or-IAM-Policy-Based-on-Date-and-Time.md"/>
             <toc-element topic="SCP-Create-EC2-Only-with-Tags.md"/>
         </toc-element>
