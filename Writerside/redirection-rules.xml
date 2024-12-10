@@ -38,4 +38,8 @@
         <description>Created after removal of "CloudFront Launch with Latest AMI" from Documentation</description>
         <accepts>CloudFront-Launch-with-Latest-AMI.html</accepts>
     </rule>
+    <rule id="a193d16">
+        <description>Created after removal of "Databases" from Documentation</description>
+        <accepts>Databases-ACID-versus-BASE.html</accepts>
+    </rule>
 </rules>
