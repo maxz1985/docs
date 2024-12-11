@@ -25,6 +25,7 @@
         <toc-element topic="AWS-Services.md"/>
         <toc-element topic="AWS-Services-That-Support-Resource-Policies.md"/>
         <toc-element toc-title="AWS Well Architected">
+            <toc-element topic="When-to-choose-multi-AZ-vs-multi-Region.md"/>
             <toc-element topic="Pillars.md"/>
         </toc-element>
         <toc-element topic="CloudFormation-Launch-with-Latest-AMI.md"/>
