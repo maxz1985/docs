@@ -107,6 +107,7 @@
         </toc-element>
         <toc-element topic="AWS-Systems-Manager-IAM-Policies.md"/>
         <toc-element toc-title="VPC">
+            <toc-element topic="Private-Hosted-Zone-Sharing.md"/>
             <toc-element topic="Add-IPv6-to-an-existing-IPv4-VPC.md"/>
             <toc-element topic="VPC-Peering-Routing-Overlapping-Subnets.md"/>
             <toc-element topic="VPC-Reserved-IPs.md"/>
