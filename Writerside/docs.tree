@@ -83,6 +83,7 @@
             <toc-element topic="Example-Policy.md"/>
         </toc-element>
         <toc-element toc-title="Lambda">
+            <toc-element topic="Lambda-Canary-Deployment.md"/>
             <toc-element topic="Lambda-Code-Outside-and-Inside-Event-Handler.md"/>
             <toc-element topic="AWS-Lambda-Networking.md"/>
             <toc-element topic="AWS-Lambda-Permissions.md"/>
