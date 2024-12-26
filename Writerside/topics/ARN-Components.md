@@ -29,7 +29,8 @@ arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
 : This is what a `resource identifier` looks like for a KMS service.
 We're specifying a particular key with key ID `1234abcd-12ab-34cd-56ef-1234567890ab`.
 
-## ex. ARN for IAM User:
+## ex. ARN for IAM:
+### User
 ```shell
 arn:aws:iam::123456789012:user/JohnDoe
 ```
@@ -39,7 +40,31 @@ arn:aws:iam::123456789012:user/JohnDoe
 This is because **`IAM` is a [Global Service](AWS-Global-Services.md) and doesn't have a region.**
 
 `user/JohnDoe`
-: A `resource identifier` for IAM Service. Specifying `JohnDoe` user.
+: A `resource identifier` for IAM Service. Specifying `JohnDoe` **user**.
+
+### Group
+```shell
+arn:aws:iam::123456789012:group/Developers
+```
+{type="medium"}
+`::`
+: NOTE the EMPTY `region` designator in this ARN.
+This is because **`IAM` is a [Global Service](AWS-Global-Services.md) and doesn't have a region.**
+
+`group/Developers`
+: A `resource identifier` for IAM Service. Specifying `Developers` **group**.
+
+### IAM Role
+```shell
+arn:aws:iam::123456789012:role/AdminRole
+```
+{type="medium"}
+`::`
+: NOTE the EMPTY `region` designator in this ARN.
+This is because **`IAM` is a [Global Service](AWS-Global-Services.md) and doesn't have a region.**
+
+`role/AdminRole`
+: A `resource identifier` for IAM Service. Specifying `AdminRole` **IAM role**.
 
 ## ex. ARN for S3 bucket
 ```shell
