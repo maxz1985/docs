@@ -30,6 +30,7 @@
         </toc-element>
         <toc-element topic="CloudFormation-Launch-with-Latest-AMI.md"/>
         <toc-element toc-title="CloudFront">
+            <toc-element topic="CloudFront-And-Route53-Latency-Routing.md"/>
             <toc-element topic="CloudFront-Field-Level-Encryption.md"/>
             <toc-element topic="Signed-URLs.md"/>
         </toc-element>
