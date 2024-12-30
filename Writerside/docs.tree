@@ -32,6 +32,7 @@
         <toc-element toc-title="CloudFront">
             <toc-element topic="CloudFront-And-Route53-Latency-Routing.md"/>
             <toc-element topic="CloudFront-Field-Level-Encryption.md"/>
+            <toc-element topic="CloudFront-Functions.md"/>
             <toc-element topic="Signed-URLs.md"/>
         </toc-element>
         <toc-element topic="CloudTrail-Event-History-vs-Logs.md"/>
