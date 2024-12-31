@@ -5,7 +5,12 @@
        xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
        title="IAM Account-level vs. Resource-level permissions" id="AWS-IAM-Account-level-permissions-vs-Resource-level-Permissions">
 
-    <tldr><p>Resource-level permissions refer to the ability to use <code>ARN</code> to specify individual resources in a policy</p></tldr>
+    <tldr><p><b>Resource-level permissions</b> refer to the ability to use <code>ARN</code> to specify individual resources in an <b>IAM Identity policy</b>.</p></tldr>
+    <warning>
+        <p>Do <b>NOT confuse</b> using <b>resource-level permissions</b> in <b>IAM Identity Policies</b> with <i>Resource-Based Policies!</i></p>
+        <p>This document discusses the use of <b>resource-level permissions</b> in <b>IAM Identity Policies</b>.</p>
+        For Resource-based Policies see <a href="IAM-Policies-vs-S3-Bucket-Policies.md">IAM Policies vs. S3 Bucket Policies</a>
+    </warning>
     <chapter title="Account-level permissions" id="account-level-permissions">
         <p> Let us examine an IAM policy allowing the creation of a VPC with a public subnet</p>
         <code-block lang="json">
@@ -77,5 +82,28 @@
         <p>The first block allows access to any subnet if the VPC is matching <code>{$vpc-id}</code></p>
         <p>The middle block allows access to AMI images that are tagged with <code>"department=dev"</code> in the region <code>{$region}</code> </p>
         <p>The last block grants access to instances, volumes, network interfaces, key pairs and security groups in the <code>{$region:account}</code> location. </p>
+        <p><b>Here is another example—an <code>IAM Identity policy</code> that restricts <code>IAM User's</code> actions to a <i>particular subnet</i></b> </p>
+        <code-block lang="json">
+            {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Action": [
+                            "ec2:RunInstances",
+                            "ec2:DescribeInstances",
+                            "ec2:TerminateInstances"
+                        ],
+                        "Resource": "*",
+                        "Condition": {
+                            "StringEquals": {
+                                "ec2:Subnet": "subnet-12345678"
+                            }
+                        }
+                    }
+                ]
+            }
+
+        </code-block>
     </chapter>
 </topic>
