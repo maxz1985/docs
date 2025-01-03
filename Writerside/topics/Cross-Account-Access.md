@@ -214,3 +214,43 @@ User's original IAM permissions in `Account A` are effectively given up for the 
 {type="medium"}
 `CrossAccountRole`
 : Name of the Role created in the previous step.
+
+## Authentication Flow
+
+Let us say an `IAM User` in `Account B` attempts to access an **`S3 Object`** in the `S3 Bucket` residing in `Account A`.
+
+```mermaid
+flowchart LR
+    subgraph Account B 
+        IAM_USer_B
+    end
+    subgraph Account A 
+        subgraph S3_Bucket_A 
+            S3_Object_A
+        end
+    end
+    IAM_USer_B --> S3_Object_A
+```
+
+Here is the authentication flow for this request:
+
+```mermaid
+flowchart TD
+    Start([Request from IAM User in Account B]) --> IAMPolicyCheck{"**IAM Identity Policy** in **Account B**<br/>( Permission given by the IAM User's parent. )"}
+    IAMPolicyCheck -- "Allows Action" --> BucketPolicyCheck{"**Bucket Policy** or ACL in **Account A**<br/>( Permission granted by the bucket owner to the IAM user. )"}
+    IAMPolicyCheck -- "Denies Action" --> Denied[Request Denied]
+
+    BucketPolicyCheck -- "Allows Access" --> ObjectACLCheck{"**Object ACL** Check<br/>( Whether the object owner granted access to the IAM user )."}
+    BucketPolicyCheck -- "Denies Access" --> Denied
+
+    ObjectACLCheck -- "Allows Access" --> Allowed[Request Allowed]
+    ObjectACLCheck -- "Denies Access" --> Denied
+
+    style Start fill:#1f78b4,stroke:#000,stroke-width:2px,color:#fff
+    style IAMPolicyCheck fill:#a6cee3,stroke:#000,stroke-width:2px
+    style BucketPolicyCheck fill:#b2df8a,stroke:#000,stroke-width:2px
+    style ObjectACLCheck fill:#fdbf6f,stroke:#000,stroke-width:2px
+    style Allowed fill:#33a02c,stroke:#000,stroke-width:2px,color:#fff
+    style Denied fill:#e31a1c,stroke:#000,stroke-width:2px,color:#fff
+
+```
