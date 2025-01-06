@@ -145,6 +145,10 @@
     </toc-element>
     <toc-element toc-title="Exercises">
         <toc-element topic="N-Interesting-Polygon.md"/>
+        <toc-element toc-title="Some Topics">
+            <toc-element topic="Synchronization-Primitives.md"/>
+            <toc-element topic="Python.md"/>
+        </toc-element>
     </toc-element>
     <toc-element toc-title="KB">
         <toc-element topic="Debugging-Flask-in-Jetbrains.md"/>

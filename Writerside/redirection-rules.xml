@@ -42,4 +42,8 @@
         <description>Created after removal of "Databases" from Documentation</description>
         <accepts>Databases-ACID-versus-BASE.html</accepts>
     </rule>
+    <rule id="205a3490">
+        <description>Created after removal of "Some Topics" from Documentation</description>
+        <accepts>Some-Topics.html</accepts>
+    </rule>
 </rules>
