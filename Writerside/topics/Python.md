@@ -5,9 +5,15 @@
   - Ability to mix OOP and Imperative programming. 
   - Readability and simplicity with clean syntax. No need for `public static void` declarations. Uses `significant space indentation` to frame code blocks, no need for brackets.
   - **`Dynamic typing`** ( `x = 10`, not `int x = 10;`). `Java` and `C#` are statically typed languages.
-  - Super rich collection of well supported 3rd party packages suited for any purpose.
-  - **Interpreted** vs Compiled. In this context, `Python` is _interpreted_ b/c there is no separate notion of `VM`, pre-compile to bytecode is not a separate stage and `.pyc` files  are not portable.
-- **Follow-up**: Can you explain Python’s Global Interpreter Lock (GIL) and how it impacts multi-threaded applications?
+  - Super rich collection of well-supported third party packages suited for any purpose.
+  - **Interpreted** vs. Compiled. In this context, `Python` is _interpreted_ b/c there is no separate notion of `VM`, pre-compile to bytecode is not a separate stage, and `.pyc` files are not portable.
+- **Follow-up**: Can you explain Python’s Global Interpreter Lock (GIL) and how it impacts multithreaded applications?
+  - `Global Interpreter Lock (GIL)` is a mutex in the Interpreter that allows execution of only one thread at a time. 
+  - This is connected to the way Python manages objects in memory via reference counting
+  - Especially problematic for CPU-Bound tasks
+  - do not use `threading` library which is fake threading
+  - To work around the issue, use `multiprocessing ` library which launches each process on a separate CPU Core with its own Python Interpreter.
+  - 
 
 ### 2. **Practical Use**
 - **Question**: How would you handle and process large datasets in Python? Which libraries would you use?

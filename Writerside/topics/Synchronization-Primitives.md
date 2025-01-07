@@ -31,15 +31,29 @@ Synchronization primitives like **spinlocks**, **mutexes**, and **semaphores** a
 - **Cons**:
     - Wastes CPU cycles during busy-waiting.
     - Poor performance in high-contention situations.
-- **Example** (in pseudocode):
-  ```c
-  while (lock is not available) {
-      // Busy-wait (spin)
+- **Example**:
+Imagine a **network driver** where the interrupt handler writes packets to a shared queue,
+  and the main application thread processes packets from the same queue:
+```c
+  spinlock_t lock;
+  initialize_spinlock(&lock);
+  
+  // Interrupt handler
+  void interrupt_handler() {
+  acquire_spinlock(&lock);  // No blocking; busy-wait if necessary
+  shared_queue.push(new_packet);
+  release_spinlock(&lock);
   }
-  acquire lock;
-  critical_section();
-  release lock;
-  ```
+  
+  // Main thread
+  void process_packets() {
+  acquire_spinlock(&lock);  // Short critical section
+  if (!shared_queue.empty()) {
+  packet = shared_queue.pop();
+  }
+  release_spinlock(&lock);
+  }
+```
 
 ---
 
@@ -52,17 +66,31 @@ Synchronization primitives like **spinlocks**, **mutexes**, and **semaphores** a
 - **Cons**:
     - Higher overhead due to kernel involvement in blocking.
     - Risk of **deadlock** if not used properly.
-- **Example** (in pseudocode):
-  ```c
-  acquire(mutex);
-  critical_section();
-  release(mutex);
-  ```
+- **Example**:
+A **web server** thread updating an in-memory cache:
+```c
+pthread_mutex_t cache_lock;
+pthread_mutex_init(&cache_lock, NULL);
+
+// Worker thread
+void update_cache(key, value) {
+    pthread_mutex_lock(&cache_lock);  // Blocks if another thread holds the lock
+    cache[key] = value;  // Critical section
+    pthread_mutex_unlock(&cache_lock);  // Release the lock
+}
+
+void read_cache(key) {
+    pthread_mutex_lock(&cache_lock);
+    value = cache[key];
+    pthread_mutex_unlock(&cache_lock);
+```
 
 ---
 
 ### **3. Semaphore**
 - **Definition**: Semaphore is a signaling mechanism that controls access to a finite number of shared resources. It can be **binary** (similar to a mutex) or **counting** (tracks the number of resources available).
+  
+  It is essentially a mutex that allows concurrent access to a defined number of resources. For example, you can only have six database connections at a time.
 - **Types**:
     - **Binary Semaphore**: Functions like a mutex but without ownership.
     - **Counting Semaphore**: Allows multiple threads to access shared resources up to a maximum limit.
@@ -75,12 +103,22 @@ Synchronization primitives like **spinlocks**, **mutexes**, and **semaphores** a
 - **Cons**:
     - Complex to implement and debug (for example, improper signaling can lead to resource leaks).
     - It May lead to starvation if one thread always consumes resources first.
-- **Example** (in pseudocode):
-  ```c
-  wait(semaphore);  // Decrement the count
-  critical_section();
-  signal(semaphore);  // Increment the count
-  ```
+- **Example**:
+  A **thread pool** for handling incoming HTTP requests:
+```c
+sem_t thread_pool_semaphore;
+sem_init(&thread_pool_semaphore, 0, MAX_THREADS);  // Initialize with MAX_THREADS
+
+// Worker thread manager
+void handle_request() {
+    sem_wait(&thread_pool_semaphore);  // Wait until a thread is available
+
+    // Critical section (thread processing)
+    process_http_request();
+
+    sem_post(&thread_pool_semaphore);  // Signal that the thread is now free
+}
+```
 
 ---
 
