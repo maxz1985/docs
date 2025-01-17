@@ -172,7 +172,7 @@ You can combine multiple sets of parameters using **`@pytest.mark.parametrize`**
 import pytest
 
 @pytest.mark.parametrize("x", [1, 2, 3])
-@pytest.mark.parametrize("y", [10, 20])
+@pytest.mark.parametrize("y", [10, 20])      
 def test_multiplication(x, y):
     assert x * y == x * y
 ```

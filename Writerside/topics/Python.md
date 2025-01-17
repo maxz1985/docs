@@ -214,7 +214,7 @@ List Comprehension—Python way, fastest
 names = [item.name for item in items]
 print(names)  # Output: ['Apple', 'Carrot', 'Banana']
 ```
-Generator - Lazy evaluation, large data
+Generator – Lazy evaluation, large data
 ```Python
 names = (item.name for item in items)
 print(list(names))  # Output: ['Apple', 'Carrot', 'Banana']
@@ -224,7 +224,7 @@ List Unpacking—as part of other processing, small data size
 names = [*(item.name for item in items)]
 print(names)  # Output: ['Apple', 'Carrot', 'Banana']
 ```
-For loop - expressive classroom
+For loop – expressive classroom
 ```Python
 names = []
 for item in items:

@@ -14,7 +14,7 @@
     - **Human-Readable Syntax**:
         - Test cases are simple to understand and use a tabular format (text files or `.robot` files).
     - **Library Support**:
-        - Built-in libraries (e.g., `BuiltIn`, `Collections`) and external libraries (e.g., `SeleniumLibrary`, `AppiumLibrary`).
+        - Built-in libraries (for example, `BuiltIn`, `Collections`) and external libraries (for example, `SeleniumLibrary`, `AppiumLibrary`).
     - **Extensibility**:
         - You can create custom keywords in Python, Java, or other languages.
     - **Reports and Logs**:
@@ -53,7 +53,7 @@ Verify Page Title
 
 ### **2. Custom keywords in Robot Framework**
 
-#### **What Are Custom Keywords?**
+#### **WCustom Keywords**
 Custom keywords are user-defined reusable functions or methods that extend Robot Framework’s functionality. You can:
 - Define them in the test case file itself.
 - Implement them in a separate resource file or a Python script.
@@ -82,7 +82,7 @@ Verify Login
 ---
 
 #### **Defining Custom Keywords in Python**:
-1. Create a Python file (e.g., `custom_keywords.py`).
+1. Create a Python file (for example, `custom_keywords.py`).
 2. Implement your custom keywords:
    ```python
    from robot.api.deco import keyword

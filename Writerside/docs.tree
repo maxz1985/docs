@@ -148,11 +148,16 @@
         <toc-element toc-title="Some Topics">
             <toc-element topic="Ansible1.md"/>
             <toc-element topic="C-Sharp.md"/>
+            <toc-element topic="DOM.md"/>
             <toc-element topic="Java.md"/>
+            <toc-element topic="Javascript.md"/>
             <toc-element topic="Python.md"/>
             <toc-element topic="PyTest.md"/>
+            <toc-element topic="React.md"/>
+            <toc-element topic="Redux.md"/>
             <toc-element topic="Robot-Framework.md"/>
             <toc-element topic="Synchronization-Primitives.md"/>
+            <toc-element topic="Vue-js.md"/>
         </toc-element>
     </toc-element>
     <toc-element toc-title="KB">
