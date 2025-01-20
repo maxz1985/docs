@@ -3,7 +3,7 @@
 # Cross-Account Access
 ```mermaid
 graph LR
-Account_A([AWS Account A </br>TRUSTED Account</br>_]) -->|Cross-account access| Account_B([AWS Account B </br>TRUSTING Account</br>_])
+Account_A([AWS Account A </br>TRUSTED Account</br>Source<br/>**IAM Principal needing the resource**.<br/>_]) -->|Cross-account access| Account_B([AWS Account B </br>TRUSTING Account</br>Destination<br/>**Resource**<br/>_])
 ```
 Can be done using:
 * resource-based policies (don't assume a role, **keep your permissions in the trusted account** when accessing the trusting account)
@@ -153,7 +153,7 @@ graph TD
     
     
 ```
-With this method an IAM user in `Account A` **assumes a role** in `Account B`.
+With this method, an IAM user in `Account A` **assumes a role** in `Account B`.
 
 This creates a `Session` during which IAM User in `Account A` has only the permissions defined by the assumed role.
 
@@ -180,9 +180,9 @@ User's original IAM permissions in `Account A` are effectively given up for the 
 ```
 ### Create a Role in Account B (with resources)
 1. In IAM Console of `Account B` create a Role 
-2. Select `AWS Account` -> `Another AWS account` and enter AWS account ID of `Account A`
+2. Select `AWS Account` → `Another AWS account` and enter AWS account ID of `Account A`
 3. Add the `Permission Policy` created in the previous step
-4. In the `Trust Policy` field enter the following:
+4. In the `Trust Policy` field, enter the following:
 ```json
 {
   "Version": "2012-10-17",

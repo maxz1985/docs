@@ -71,8 +71,10 @@
         <toc-element topic="Firehose-Data-Transformation.md"/>
         <toc-element topic="HTTP-Headers.md"/>
         <toc-element toc-title="IAM">
-            <toc-element topic="Cross-Account-Access.md"/>
+            <toc-element topic="Cross-Account-Access.md">
+            </toc-element>
             <toc-element topic="AWS-IAM-Account-level-permissions-vs-Resource-level-Permissions.topic"/>
+            <toc-element topic="IAM-CloudFormation-Roles.md"/>
             <toc-element topic="IAM-Identity-Center.md"/>
             <toc-element topic="IAM-Policies-vs-S3-Bucket-Policies.md"/>
             <toc-element topic="IAM-Policy-Operators.md"/>
