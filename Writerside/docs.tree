@@ -152,6 +152,7 @@
             <toc-element topic="Ansible1.md"/>
             <toc-element topic="C-Sharp.md"/>
             <toc-element topic="DOM.md"/>
+            <toc-element topic="Git-Flows.md"/>
             <toc-element topic="Java.md"/>
             <toc-element topic="Javascript.md"/>
             <toc-element topic="Python.md"/>
