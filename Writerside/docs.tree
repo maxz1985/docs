@@ -159,6 +159,7 @@
             <toc-element topic="PyTest.md"/>
             <toc-element topic="React.md"/>
             <toc-element topic="Redux.md"/>
+            <toc-element topic="Release-Management.md"/>
             <toc-element topic="Robot-Framework.md"/>
             <toc-element topic="Synchronization-Primitives.md"/>
             <toc-element topic="Vue-js.md"/>
