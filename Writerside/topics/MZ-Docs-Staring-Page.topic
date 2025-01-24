@@ -7,7 +7,7 @@
     <section-starting-page>
         <title>MZ Docs</title>
         <description>
-            Public documentation maintained for my reference and to share with the community.
+           Public documentation maintained for my reference and to share with the community.
         </description>
 
         <!--    Add up to 2 topics that you want to promote. Use the "type" attribute to select an icon.    -->
@@ -19,9 +19,10 @@
         <!--    Add several topics that are most important for this section.    -->
         <primary>
             <title>Get Started</title>
-            <a href="AWS-Services.md" type="documents" summary="AWS docs">AWS</a>
-            <a href="Rocky-9-Installation.md" type="documents" summary="Rocky Linux docs">Rocky Linux (RedHat Clone)</a>
-            <a href="K8S-Installation.md" type="documents" summary="Kubernetes docs">Kubernetes</a>
+            <a href="https://www.credly.com/users/max-zelenov" type="academy" summary="SAP-C02">AWS Certified Solutions Architect Professional</a>
+            <a href="AWS-Services.md" type="cloud" summary="AWS docs">AWS</a>
+            <a href="Rocky-9-Installation.md" type="server" summary="Rocky Linux docs">Rocky Linux (RedHat Clone)</a>
+            <a href="K8S-Installation.md" type="open-source" summary="Kubernetes docs">Kubernetes</a>
         </primary>
 
         <!--    Add several topics that are less important or are relevant only for advanced/experienced users.    -->
