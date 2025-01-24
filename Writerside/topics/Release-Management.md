@@ -47,3 +47,96 @@ flowchart TB
     Change_Management --> Monitoring_Post_Release
     Feedback_Collection --> Documentation_Update
 ```
+## Issues and Resolutions
+| **Conflict**                                  | **Resolution Strategies**                                                                                      |
+|-----------------------------------------------|----------------------------------------------------------------------------------------------------------------|
+| **Code Conflicts**                            | - **branching strategy** like GitFlow or GitHub Flow.                                                          |
+|                                               | - **feature branches and pull requests (PRs)** with code reviews.                                              |
+|                                               | - Run **automated tests** (unit, integration) on **every PR**.                                                 |
+|                                               | - Implement a **code freeze** period before the release.                                                       |
+|                                               | - Hold **conflict resolution meetings** to address dependencies and priorities.                                |
+| **Environmental Conflicts**                   | - Use **Infrastructure as Code (IaC)** tools like Terraform or Ansible to standardize environments.            |
+|                                               | - Docker or **Virtual Machines**.                                                                              |
+|                                               | - Dedicated test environments for specific testing purposes (e.g., UAT, performance testing).                  |
+| **Timeline and Scheduling Conflicts**         | - Maintain a centralized **release calendar** to track and plan releases.                                      |
+|                                               | - **Break down features** into smaller, deliverable increments to reduce bottlenecks.                          |
+|                                               | - Build **buffer time** into release schedules for unforeseen delays.                                          |
+|                                               | - **Communicate** regularly with stakeholders to align priorities or adjust expectations.                      |
+| **Communication and Collaboration Conflicts** | - Foster cross-functional collaboration using DevOps practices.                                                |
+|                                               | - Create detailed and clear **release notes**.                                                                 |
+|                                               | - Conduct daily **standups** or weekly meetings to ensure team alignment.                                      |
+|                                               | - Use centralized tools like JIRA, Confluence, or Slack for communication and tracking.                        |
+| **Testing and Quality Conflicts**             | - **Automate** repetitive **tests** (unit, integration, regression) to save time.                              |
+|                                               | - Start testing early in the development process (shift-left testing).                                         |
+|                                               | - Use mock services or **simulated environments** when live resources are unavailable.                         |
+|                                               | - Define comprehensive **test plans** to ensure all scenarios are covered.                                     |
+| **Deployment Conflicts**                      | - Minimize downtime using **deployment strategies like Blue-Green or Canary deployments**.                     |
+|                                               | - Create **automated rollback processes** for quick recovery.                                                  |
+|                                               | - Follow **semantic versioning** `<major>.<minor>.<patch>` and maintain clear versioning in release artifacts. |
+|                                               | - **Standardize deployments using CI/CD pipelines** to reduce human error.                                     |
+| **Post-Release Conflicts**                    | - Use **monitoring tools like New Relic**, Datadog, or CloudWatch to track system performance and issues.      |
+|                                               | - Establish a clear **incident response plan** for triaging and resolving post-release issues.                 |
+|                                               | - Collect user and **stakeholder feedback** for iterative improvements.                                        |
+|                                               | - Set up a streamlined **process for deploying critical hotfixes**.                                            |
+
+## On Track
+* Set Expectations Early:
+* Regular Status Updates
+* Ownership via Collaboration Tools
+* Intermediate deadlines
+* Kanban Dashboard
+* Risk Identification
+* Buffer time
+* Small wins
+
+## Late feature
+* understand delay (complexity, resource, external dependency)
+* Can it be delayed? (must, should, could, won't haves)
+* simplify or down to MVP
+* if critical negotiate deadlines
+* inform stakeholders on the decision, what is being done to mitigate
+* potentially reallocate from less important features to this one
+
+## Risks
+* planning
+  * define scope
+  * define schedule
+  * kickoff
+* Testing
+  * early testing
+  * automated testing
+  * load testing
+  * staging environment
+* Communication
+  * slack
+  * jira
+* Dependencies
+  * identify at kickoff
+  * alternative to
+* Last-minute changes
+  * code freeze for non-critical
+  * change control to assess and approve
+* Deployment
+  * CD automation
+  * canary or rolling or blue-green
+  * rollback procedure
+* Security
+  * secrets encrypted
+  * SAST and DAST sonarqube or veracode
+* Post-Release
+  * monitoring
+* Resources
+  * resource allocation
+  * cloud-based testing or vm testing
+
+## KPI
+* planned vs. actual release date
+* scope change/creep in items
+* lead change time – days from commit to deployment
+* escapes
+* regression rate % of defects introduced by new functionality
+* test coverage
+* `Mean time to recovery` after issue with deployment
+* support tickets after release
+* velocity
+* burndown
