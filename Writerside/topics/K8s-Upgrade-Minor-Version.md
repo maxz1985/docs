@@ -98,6 +98,10 @@ Drain the node
 ```Bash
 kubectl drain k8smaster --ignore-daemonsets
 ```
+> The above command is **ALWAYS** executed on the **CONTROL PLANE node**.
+> 
+{style="warning"}
+
 Upgrade the `kubelet` and `kubectl`.
 ```Bash
 sudo apt-mark unhold kubelet kubectl
@@ -119,4 +123,27 @@ Un-cordon the node
 ```Bash
 kubectl uncordon k8smaster
 ```
+> The above command is **ALWAYS** executed on the **CONTROL PLANE node**.
+>
+{style="warning"}
+
 ### Upgrade worker nodes
+1.  [](#update-apt-repositories)
+2. [](#update-apt-cache-and-get-the-k8s-version-to-upgrade-to)
+3. [](#upgrade-kubeadm)
+
+#### Call `upgrade node`
+```Bash
+sudo kubeadm upgrade node
+```
+6. [](#upgrade-kubelet-and-kubectl)
+> You may get the following error when running `kubectl drain` on a worker node running `kubernetes-dashbord`:
+> ```Bash
+> cannot delete Pods with local storage (use --delete-emptydir-data to override): kube-system/metrics-server-66966f44c6-tgq9s, kubernetes-dashboard/kubernetes-dashboard-api-7746d7db6f-lkrbt, kubernetes-dashboard/kubernetes-dashboard-auth-6cdff87986-sxt52, kubernetes-dashboard/kubernetes-dashboard-kong-57d45c4f69-4qm9s, kubernetes-dashboard/kubernetes-dashboard-metrics-scraper-df869c886-m2s48, kubernetes-dashboard/kubernetes-dashboard-web-6ccf8d967-hn7zf
+> ```
+> In that case, use 
+> ```Bash
+>kubectl drain k8sworker01 --ignore-daemonsets --delete-emptydir-data
+>```
+> 
+{style="note"}
