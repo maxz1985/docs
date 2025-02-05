@@ -179,6 +179,7 @@
         <toc-element topic="Install-Kubectl.md"/>
         <toc-element topic="Install-K9s.md"/>
         <toc-element topic="Install-Metrics-Server.md"/>
+        <toc-element topic="K8s-Upgrade-Minor-Version.md"/>
     </toc-element>
     <toc-element topic="Scratchpad.md"/>
 </instance-profile>
