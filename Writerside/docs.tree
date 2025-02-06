@@ -184,5 +184,6 @@
     <toc-element topic="Scratchpad.md"/>
     <toc-element toc-title="Security">
         <toc-element topic="Risk-Assessment-Metrics.md"/>
+        <toc-element topic="Types-of-Cloud-Deployments.md"/>
     </toc-element>
 </instance-profile>
