@@ -150,6 +150,10 @@
     <toc-element toc-title="Exercises">
         <toc-element topic="N-Interesting-Polygon.md"/>
         <toc-element toc-title="Some Topics">
+            <toc-element toc-title="Security">
+                <toc-element topic="Risk-Assessment-Metrics.md"/>
+                <toc-element topic="Types-of-Cloud-Deployments.md"/>
+            </toc-element>
             <toc-element topic="Ansible1.md"/>
             <toc-element topic="C-Sharp.md"/>
             <toc-element topic="DOM.md"/>
@@ -182,8 +186,4 @@
         <toc-element topic="K8s-Upgrade-Minor-Version.md"/>
     </toc-element>
     <toc-element topic="Scratchpad.md"/>
-    <toc-element toc-title="Security">
-        <toc-element topic="Risk-Assessment-Metrics.md"/>
-        <toc-element topic="Types-of-Cloud-Deployments.md"/>
-    </toc-element>
 </instance-profile>
