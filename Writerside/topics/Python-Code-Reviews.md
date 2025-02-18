@@ -266,3 +266,94 @@ def add(x: int, y: int) -> int:
 </compare>
 
 [Back to Summary](#summary)
+
+## Interesting Example
+I find this function in a code review.
+```Python
+def add_distance_from_base(coords, base_coords):
+    """
+    Accepts `coords` list of `[lat, lon]` elements and a tuple `base_coords (lat, lon)`
+    representing coordinates of the base station.
+    
+    Returns a modified `coords` list containing computed distance from base to each coordinate.
+    """
+    return [coord + [geodesic(base_coords, tuple(coord)).kilometers] for coord in coords]
+```
+Well-written.
+Take a list of `lat`,`lon` points and add distance from the base station (radio) to each point.
+Uses list comprehension so that is good too.
+Clear and concise.
+
+In the body of `main` it is called as follows:
+```Python
+distances = add_distance_from_base(coords_list, base)
+```
+The solution runs in a container so resources are at a premium. The typical list passed into the function is large.
+
+So what is the issue? The function is creating and returning a **NEW LIST**. So we're consuming memory twice.
+
+What we should do is **modify** list **in place** like so:
+
+```Python
+def add_distance_from_base(coords, base_coords):
+    
+    for coord in coords:
+        # Compute distance in km and Append the distance to the sublist
+        coord.append(geodesic(base_coords, tuple(coord)).kilometers)  
+    return coords  # Return the modified list
+```
+Why no list comprehension in this case? 
+
+List comprehension **always** creates **NEW** lists. Modification in place is done via loop iterators.
+
+Now what happens if we call this updated function from the `main`?
+```Python
+distances = add_distance_from_base(coords_list, base)
+```
+The `distance` and `coords_list` objects point to the same list. So if you do `(distances is coords_list)`, it will return `True`
+
+Any modifications to `distance` will reflect in `coords_list` and vice versa. In this case it is ok.
+
+We can now call the function without an assignment and use `coords_list` in the calculations.
+```Python
+add_distance_from_base(coords_list, base)
+```
+Now why keep the `return` statement if we aren't using the result?
+* Supports method calling on the function. For example, you can do `print(add_distance_from_base(coords_list, base))`
+* Allows for assignment when wanted `distances = add_distance_from_base(coords_list, base)`
+* Clarity – Returning the modified list makes it clear that the function has an effect.
+
+
+### Aside
+Someone suggested that if we want to support independent modifications to `distances` and `coord_list`
+**AND save memory**, we should pass a shallow copy of the list to the function like so:
+```Python
+distances = add_distance_from_base(coords_list[:], base)
+```
+This would work **if the function was modifying only a _small_ part of the list**.
+
+In our case, the approach will still consume twice the memory **because we're modifying _each element of the list_**.
+
+The shallow copy in python copies all the pointers into another object.
+
+So initially after doing 
+```Python
+new_list = old_list[:]
+```
+before any modifications to either of the lists, the following will be true
+```Python
+(new_list is old_list) # -> False -> a new list object is created
+(new_list == old_list) # -> True -> the pointers in both objects are identical
+```
+The memory consumption at this point is single list.
+
+Now let us say we start modifying the `new_list`.
+Python will begin creating new pointers and allocating memory for each modified element.
+
+
+The `(new_list == old_list)` becomes `False`
+and, if **each** element of the `new_list` gets modified,
+we have double the memory consumption – full `new_list` and full `old_list`.
+
+In our case, the `add_distance_from_base` does modify **each** element of the shallow copy,
+and therefore, in the end will create a `distances` list of the same size as `coords_list` saving no memory.
