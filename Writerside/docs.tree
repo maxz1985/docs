@@ -161,6 +161,7 @@
             <toc-element topic="Java.md"/>
             <toc-element topic="Javascript.md"/>
             <toc-element topic="Python.md"/>
+            <toc-element topic="Python-Code-Reviews.md"/>
             <toc-element topic="PyTest.md"/>
             <toc-element topic="React.md"/>
             <toc-element topic="Redux.md"/>
