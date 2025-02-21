@@ -95,13 +95,12 @@ Upgrade your CNI plug in **IF REQUIRED**.
 
 #### Upgrade `kubelet` and `kubectl`
 Drain the node
-```Bash
-kubectl drain k8smaster --ignore-daemonsets
-```
-> The above command is **ALWAYS** executed on the **CONTROL PLANE node**.
-> 
+> The following command is **ALWAYS** executed on the **CONTROL PLANE node**.
+>
 {style="warning"}
-
+```Bash
+kubectl drain {node_name} --ignore-daemonsets
+```
 Upgrade the `kubelet` and `kubectl`.
 ```Bash
 sudo apt-mark unhold kubelet kubectl
@@ -120,12 +119,13 @@ sudo systemctl daemon-reload
 sudo systemctl restart kubelet
 ```
 Un-cordon the node
-```Bash
-kubectl uncordon k8smaster
-```
 > The above command is **ALWAYS** executed on the **CONTROL PLANE node**.
 >
 {style="warning"}
+
+```Bash
+kubectl uncordon {node_name}
+```
 
 ### Upgrade worker nodes
 1.  [](#update-apt-repositories)
