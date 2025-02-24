@@ -5,7 +5,9 @@
 ```bash
 wget https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 ```
-Edit the `components.yaml` file to make the following adjustments.
+Rename `components.yaml` to `metrics-server-components.yaml`
+
+Edit the `metrics-server-components.yaml` file to make the following adjustments.
 
 1. Allow both Cluster Roles access to `configmaps` resources.
 
@@ -301,7 +303,7 @@ spec:
 
 ![install-metrics-server-01.png](install-metrics-server-01.png) {thumbnail="true"}
 
-### Final file
+### Final file `metrics-server-components.yaml`
 ```yaml
 apiVersion: v1
 kind: ServiceAccount
@@ -513,19 +515,7 @@ spec:
 ## Apply manifest
 
 ```bash
-kubectl apply -f components.yaml
-```
-
-## Verify installation
-```Bash
-kubectl get deployment metrics-server -n kube-system
-```
-```Bash
-NAME             READY   UP-TO-DATE   AVAILABLE   AGE
-metrics-server   1/1     1            1           6h28m
-```
-```Bash
-kubectl get pods m* -n kube-system | grep metrics
+kubectl apply -f metrics-server-components.yaml
 ```
 ## Verify Metrics Server Installation
 ```Bash

@@ -27,7 +27,7 @@ sudo swapoff -a
 sudo rm -rf /swap.img
 ```
 ### Load required Kernel modules
-`overlay` module provides support for `OverlayFS` which is a filesystem used by container runtimes to layer the
+`overlay` module provides support for `OverlayFS`, which is a filesystem used by container runtimes to layer the
 container’s root filesystem over the host filesystem.
 
 `br_netfilter` module provides support for packet filtering in Linux bridge networks based on various criteria,
@@ -95,6 +95,14 @@ echo \
 sudo apt-get update
 ```
 ### Install Docker Packages
+> Since `Kubernetes` `v1.24` `Docker` support is fully removed in favor of `containerd`.
+> 
+> Some documentation online claims that currently installing _ALL_ Docker packages is _not required_.
+> 
+> The only package needed is `containerd.io`, the line below should be 
+> `sudo apt-get install containerd.io -y`, and the rest of docker-related instructions could be skipped.
+> 
+> I have not tested this, so until I do, this guide will recommend installing full docker as stated in the current K8s documentation.
 ```Shell
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 ```
@@ -226,16 +234,18 @@ Download custom resources manifest
 ```Shell
 wget https://raw.githubusercontent.com/projectcalico/calico/v3.29.0/manifests/custom-resources.yaml
 ```
+Rename `custom-resources.yaml` to `calico-custom-resources.yaml`
+
 Change `cidr: 192.168.0.0/16` to match the CIDR you used in `kubeadm init`
 ```Shell
-vi custom-resources.yaml
+vi calico-custom-resources.yaml
 ```
 ```Shell
 cidr: 10.76.0.0/16
 ```
 Install `Calico` by applying custom resources manifest 
 ```Shell
-kubectl create -f custom-resources.yaml
+kubectl create -f calico-custom-resources.yaml
 ```
 Check that all containers are in the `Running` status. Especially all calico and coredns
 ```Shell
