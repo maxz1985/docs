@@ -9,6 +9,7 @@
     <toc-element topic="Keyboard-Shortcuts.md"/>
     <toc-element topic="Ansible.md"/>
     <toc-element topic="Bootstrap-Ubuntu.md"/>
+    <toc-element topic="Cloud-Services-Comparison.md"/>
     <toc-element toc-title="AI">
         <toc-element topic="AI-Types.md"/>
         <toc-element topic="Data-Analytics.md"/>
