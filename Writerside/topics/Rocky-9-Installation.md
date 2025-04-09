@@ -122,13 +122,16 @@ vi .zshrc
 ```
 Add the following line
 <tabs>
-    <tab title="RedHat">
-        <code-block lang="shell">source /usr/share/fzf/shell/key-bindings.zsh</code-block>
+    <tab title="zsh">
+        <code-block lang="bash">
+            # Set up fzf key bindings and fuzzy completion
+            source &lt; (fzf --zsh)
+        </code-block>
     </tab>
-    <tab title="Ubuntu">
-        <code-block lang="shell">source /usr/share/doc/fzf/examples/key-bindings.bash</code-block>
-    </tab>
-    <tab title="macOS">
-        <code-block lang="shell">[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh</code-block>
-    </tab>
+    <tab title="bash">
+        <code-block lang="bash">
+            # Set up fzf key bindings and fuzzy completion
+            eval "$(fzf --bash)"
+        </code-block>
+    </tab>  
 </tabs>

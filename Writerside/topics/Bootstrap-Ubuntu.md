@@ -71,8 +71,9 @@ OSH_THEME="powerbash10k"
 vi .bashrc
 ```
 Add the following line at the end and save
-```shell
-source /usr/share/doc/fzf/examples/key-bindings.bash
+```bash
+# Set up fzf key bindings and fuzzy completion
+eval "$(fzf --bash)"
 ```
 
 Finally, restart your terminal. Make sure bash theme loaded ok and Nerd Font Icons are rendered correctly.

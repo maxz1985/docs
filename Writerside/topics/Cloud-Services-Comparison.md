@@ -1,48 +1,67 @@
 # Cloud Services Comparison
-| **Category**                         | **AWS Service**                | **Azure Service**                 | **GCP Service**                         |
-|--------------------------------------|--------------------------------|-----------------------------------|-----------------------------------------|
-| **Compute**                          | Amazon EC2                     | Azure Virtual Machines            | Compute Engine                          |
-| **Serverless Compute**               | AWS Lambda                     | Azure Functions                   | Cloud Functions                         |
-| **Container Orchestration**          | Amazon EKS                     | Azure Kubernetes Service (AKS)    | Google Kubernetes Engine (GKE)          |
-| **Container Registry**               | Amazon ECR                     | Azure Container Registry          | Artifact Registry                       |
-| **Object Storage**                   | Amazon S3                      | Azure Blob Storage                | Cloud Storage                           |
-| **Block Storage**                    | Amazon EBS                     | Azure Managed Disks               | Persistent Disk                         |
-| **File Storage**                     | Amazon EFS                     | Azure Files                       | Filestore                               |
-| **Relational Database**              | Amazon RDS / Aurora            | Azure SQL Database                | Cloud SQL / Spanner                     |
-| **NoSQL Database**                   | Amazon DynamoDB                | Azure Cosmos DB                   | Firestore / Bigtable                    |
-| **Data Warehouse**                   | Amazon Redshift                | Azure Synapse Analytics           | BigQuery                                |
-| **Managed Hadoop**                   | Amazon EMR                     | Azure HDInsight                   | Dataproc                                |
-| **Data Lake**                        | AWS Lake Formation             | Azure Data Lake                   | BigLake                                 |
-| **Search Service**                   | Amazon CloudSearch             | Azure Cognitive Search            | Cloud Search                            |
-| **API Management**                   | Amazon API Gateway             | Azure API Management              | API Gateway                             |
-| **CDN**                              | Amazon CloudFront              | Azure CDN                         | Cloud CDN                               |
-| **DNS**                              | Amazon Route 53                | Azure DNS                         | Cloud DNS                               |
-| **Load Balancer**                    | Elastic Load Balancing         | Azure Load Balancer / Traffic Mgr | Cloud Load Balancing                    |
-| **Direct Connectivity**              | AWS Direct Connect             | Azure ExpressRoute                | Cloud Interconnect                      |
-| **VPN**                              | AWS VPN                        | Azure VPN Gateway                 | Cloud VPN                               |
-| **Identity & Access Management**     | AWS IAM                        | Azure Active Directory            | IAM                                     |
-| **Identity Federation & User Pools** | Amazon Cognito                 | Azure Active Directory B2C        | Firebase Authentication                 |
-| **Secrets Management**               | AWS Secrets Manager            | Azure Key Vault                   | Secret Manager                          |
-| **Key Management**                   | AWS KMS                        | Azure Key Vault                   | Cloud KMS                               |
-| **Web Application Firewall**         | AWS WAF                        | Azure WAF                         | Cloud Armor                             |
-| **DDoS Protection**                  | AWS Shield                     | Azure DDoS Protection             | Cloud Armor                             |
-| **Monitoring**                       | Amazon CloudWatch              | Azure Monitor                     | Cloud Monitoring                        |
-| **Logging**                          | AWS CloudTrail                 | Azure Monitor (Log Analytics)     | Cloud Logging                           |
-| **CI/CD**                            | AWS CodePipeline               | Azure DevOps Pipelines            | Cloud Build                             |
-| **Source Control**                   | AWS CodeCommit                 | Azure Repos                       | Cloud Source Repositories               |
-| **Artifact Repository**              | AWS CodeArtifact               | Azure Artifacts                   | Artifact Registry                       |
-| **Infrastructure as Code**           | AWS CloudFormation             | Azure Resource Manager (ARM)      | Deployment Manager / Terraform          |
-| **Data Catalog**                     | AWS Glue                       | Azure Data Catalog                | Data Catalog                            |
-| **Message Queue**                    | Amazon SQS                     | Azure Queue Storage / Service Bus | Pub/Sub                                 |
-| **Event Streaming**                  | Amazon Kinesis                 | Azure Event Hubs                  | Pub/Sub / Dataflow                      |
-| **Notification Service**             | Amazon SNS                     | Azure Notification Hubs           | Firebase Cloud Messaging                |
-| **Email Service**                    | Amazon SES                     | Azure Communication Services      | SendGrid                                |
-| **OCR / Document Processing**        | Amazon Textract                | Azure Form Recognizer             | Document AI                             |
-| **Machine Learning**                 | Amazon SageMaker               | Azure Machine Learning            | Vertex AI                               |
-| **Backup**                           | AWS Backup                     | Azure Backup                      | Backup and DR                           |
-| **Migration**                        | AWS DataSync / Snowball        | Azure Data Box                    | Transfer Appliance                      |
-| **Hybrid Cloud Storage**             | AWS Storage Gateway            | Azure StorSimple                  | Transfer Appliance                      |
-| **Edge Computing**                   | AWS Wavelength                 | Azure Edge Zones                  | Anthos                                  |
-| **Virtual Desktop / App Streaming**  | Amazon WorkSpaces / AppStream  | Azure Virtual Desktop             | Workstations                            |
-| **Business Apps (Docs, Mail)**       | Amazon WorkDocs / WorkMail     | Microsoft 365 / Exchange Online   | Google Workspace (Drive, Gmail)         |
-| **Compliance & Recommendations**     | AWS Artifact / Trusted Advisor | Azure Compliance Mgr / Advisor    | Security Command Center / Active Assist |
+| **Category**                                        | **AWS Service**                    | **Azure Service**                                             | **GCP Service**                                         |
+|-----------------------------------------------------|------------------------------------|---------------------------------------------------------------|---------------------------------------------------------|
+| **Compute**                                         | Amazon EC2                         | Azure Virtual Machines                                        | Compute Engine                                          |
+| **Simplified Cloud Hosting / VPS**                  | Amazon Lightsail                   | Azure App Service / Azure VMs (Basic Tier)                    | App Engine (Standard Environment)                       |
+| **Serverless Compute**                              | AWS Lambda                         | Azure Functions                                               | Cloud Functions                                         |
+| **Container Orchestration**                         | Amazon EKS                         | Azure Kubernetes Service (AKS)                                | Google Kubernetes Engine (GKE)                          |
+| **Container Registry**                              | Amazon ECR                         | Azure Container Registry                                      | Artifact Registry                                       |
+| **Object Storage**                                  | Amazon S3                          | Azure Blob Storage                                            | Cloud Storage                                           |
+| **Block Storage**                                   | Amazon EBS                         | Azure Managed Disks                                           | Persistent Disk                                         |
+| **File Storage**                                    | Amazon EFS                         | Azure Files                                                   | Filestore                                               |
+| **High-Performance File System**                    | Amazon FSx for Lustre              | Azure HPC Cache / Azure NetApp Files                          | Filestore (with performance tier)                       |
+| **Windows File System**                             | Amazon FSx for Windows File Server | Azure Files (SMB support)                                     | Filestore (limited SMB via 3rd-party)                   |
+| **Relational Database**                             | Amazon RDS / Aurora                | Azure SQL Database                                            | Cloud SQL / Spanner                                     |
+| **NoSQL Database**                                  | Amazon DynamoDB                    | Azure Cosmos DB                                               | Firestore / Bigtable                                    |
+| **Document-Oriented Database (MongoDB-compatible)** | Amazon DocumentDB                  | Azure Cosmos DB (API for MongoDB)                             | Firestore / MongoDB Atlas on GCP                        |
+| **In-memory Caching for NoSQL**                     | Amazon DAX                         | Azure Cache for Redis (with Cosmos DB integration)            | Memorystore (with Firestore/Datastore integration)      |
+| **In-memory Caching (General Purpose)**             | Amazon ElastiCache                 | Azure Cache for Redis                                         | Memorystore                                             |
+| **Data Warehouse**                                  | Amazon Redshift                    | Azure Synapse Analytics                                       | BigQuery                                                |
+| **Managed Hadoop**                                  | Amazon EMR                         | Azure HDInsight                                               | Dataproc                                                |
+| **Data Lake**                                       | AWS Lake Formation                 | Azure Data Lake                                               | BigLake                                                 |
+| **Search Service**                                  | Amazon CloudSearch                 | Azure Cognitive Search                                        | Cloud Search                                            |
+| **API Management**                                  | Amazon API Gateway                 | Azure API Management                                          | API Gateway                                             |
+| **CDN**                                             | Amazon CloudFront                  | Azure CDN                                                     | Cloud CDN                                               |
+| **DNS**                                             | Amazon Route 53                    | Azure DNS                                                     | Cloud DNS                                               |
+| **Load Balancer**                                   | Elastic Load Balancing             | Azure Load Balancer / Traffic Mgr                             | Cloud Load Balancing                                    |
+| **Direct Connectivity**                             | AWS Direct Connect                 | Azure ExpressRoute                                            | Cloud Interconnect                                      |
+| **VPN**                                             | AWS VPN                            | Azure VPN Gateway                                             | Cloud VPN                                               |
+| **Identity & Access Management**                    | AWS IAM                            | Azure Active Directory                                        | IAM                                                     |
+| **Identity Federation & User Pools**                | Amazon Cognito                     | Azure Active Directory B2C                                    | Firebase Authentication                                 |
+| **Secrets Management**                              | AWS Secrets Manager                | Azure Key Vault                                               | Secret Manager                                          |
+| **Key Management**                                  | AWS KMS                            | Azure Key Vault                                               | Cloud KMS                                               |
+| **Web Application Firewall**                        | AWS WAF                            | Azure WAF                                                     | Cloud Armor                                             |
+| **DDoS Protection**                                 | AWS Shield                         | Azure DDoS Protection                                         | Cloud Armor                                             |
+| **Monitoring**                                      | Amazon CloudWatch                  | Azure Monitor                                                 | Cloud Monitoring                                        |
+| **Logging**                                         | AWS CloudTrail                     | Azure Monitor (Log Analytics)                                 | Cloud Logging                                           |
+| **Threat Detection & Anomaly Monitoring**           | Amazon GuardDuty                   | Microsoft Defender for Cloud (formerly Azure Security Center) | Security Command Center (Threat Detection)              |
+| **Vulnerability Scanning & Assessment**             | Amazon Inspector                   | Microsoft Defender for Servers / Defender for Endpoint        | Security Command Center + Container/Kubernetes Scanning |
+| **Sensitive Data Discovery & Classification**       | Amazon Macie                       | Microsoft Purview Data Loss Prevention                        | Sensitive Data Protection (Cloud DLP)                   |
+| **Security Investigation & Forensics**              | Amazon Detective                   | Microsoft Sentinel (with Azure Monitor Logs)                  | Chronicle Security Operations (formerly Backstory)      |
+| **CI/CD**                                           | AWS CodePipeline                   | Azure DevOps Pipelines                                        | Cloud Build                                             |
+| **Source Control**                                  | AWS CodeCommit                     | Azure Repos                                                   | Cloud Source Repositories                               |
+| **Artifact Repository**                             | AWS CodeArtifact                   | Azure Artifacts                                               | Artifact Registry                                       |
+| **Infrastructure as Code**                          | AWS CloudFormation                 | Azure Resource Manager (ARM)                                  | Deployment Manager / Terraform                          |
+| **Data Catalog**                                    | AWS Glue                           | Azure Data Catalog                                            | Data Catalog                                            |
+| **Message Queue**                                   | Amazon SQS                         | Azure Queue Storage / Service Bus                             | Pub/Sub                                                 |
+| **Event Streaming**                                 | Amazon Kinesis                     | Azure Event Hubs                                              | Pub/Sub / Dataflow                                      |
+| **Real-Time Data Streaming**                        | Amazon Kinesis Data Streams        | Azure Event Hubs                                              | Pub/Sub                                                 |
+| **Streaming Data Delivery / Ingestion**             | Amazon Kinesis Data Firehose       | Azure Event Hubs Capture                                      | Dataflow / Pub/Sub + BigQuery / Cloud Storage           |
+| **Stream Processing & Real-Time Analytics**         | Amazon Kinesis Data Analytics      | Azure Stream Analytics                                        | Dataflow / Apache Beam / BigQuery (Streaming)           |
+| **Event Bus / Event-Driven Integration**            | Amazon EventBridge                 | Azure Event Grid                                              | Eventarc                                                |
+| **Notification Service**                            | Amazon SNS                         | Azure Notification Hubs                                       | Firebase Cloud Messaging                                |
+| **Email Service**                                   | Amazon SES                         | Azure Communication Services                                  | SendGrid                                                |
+| **Contact Center as a Service (CCaaS)**             | Amazon Connect                     | Azure Communication Services / Dynamics 365 Customer Service  | Contact Center AI                                       |
+| **OCR / Document Processing**                       | Amazon Textract                    | Azure Form Recognizer                                         | Document AI                                             |
+| **Machine Learning**                                | Amazon SageMaker                   | Azure Machine Learning                                        | Vertex AI                                               |
+| **Time Series Forecasting (ML-based)**              | Amazon Forecast                    | Azure Machine Learning + Forecasting SDK                      | Vertex AI Forecasting (via AutoML Tables)               |
+| **Fraud Detection (ML-based)**                      | Amazon Fraud Detector              | Azure Fraud Protection (via Dynamics 365 Fraud Protection)    | Vertex AI + Custom Models                               |
+| **Natural Language Processing (NLP)**               | Amazon Comprehend                  | Azure Text Analytics                                          | Cloud Natural Language API                              |
+| **Conversational AI / Chatbots**                    | Amazon Lex                         | Azure Bot Service + Language Studio                           | Dialogflow CX / ES                                      |
+| **Backup**                                          | AWS Backup                         | Azure Backup                                                  | Backup and DR                                           |
+| **Migration**                                       | AWS DataSync / Snowball            | Azure Data Box                                                | Transfer Appliance                                      |
+| **Hybrid Cloud Storage**                            | AWS Storage Gateway                | Azure StorSimple                                              | Transfer Appliance                                      |
+| **Edge Computing**                                  | AWS Wavelength                     | Azure Edge Zones                                              | Anthos                                                  |
+| **Virtual Desktop / App Streaming**                 | Amazon WorkSpaces / AppStream      | Azure Virtual Desktop                                         | Workstations                                            |
+| **Business Apps (Docs, Mail)**                      | Amazon WorkDocs / WorkMail         | Microsoft 365 / Exchange Online                               | Google Workspace (Drive, Gmail)                         |
+| **Compliance & Recommendations**                    | AWS Artifact / Trusted Advisor     | Azure Compliance Mgr / Advisor                                | Security Command Center / Active Assist                 |
