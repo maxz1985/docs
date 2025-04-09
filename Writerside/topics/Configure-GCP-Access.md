@@ -99,3 +99,9 @@ To verify your gcloud configuration run:
 ```Bash
 gcloud auth list
 ```
+## Re-authenticating
+If you get logged off run
+```Bash
+gcloud auth login --no-launch-browser
+```
+The process of authentication will be similar to `gcloud init`
