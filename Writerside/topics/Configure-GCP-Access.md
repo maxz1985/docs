@@ -99,9 +99,16 @@ To verify your gcloud configuration run:
 ```Bash
 gcloud auth list
 ```
-## Re-authenticating
+## Re-authenticating for `gcloud` commands
 If you get logged off run
 ```Bash
 gcloud auth login --no-launch-browser
 ```
 The process of authentication will be similar to `gcloud init`
+
+## Authenticating for `terraform`
+`Terraform` requires a special type of authentication called ADC (Application Default Credentials)
+To run `terraform` commands authenticate as follows:
+```Bash
+gcloud auth application-default login --no-launch-browser
+```
