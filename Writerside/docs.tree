@@ -7,8 +7,6 @@
 
     <toc-element topic="MZ-Docs-Staring-Page.topic"/>
     <toc-element topic="Keyboard-Shortcuts.md"/>
-    <toc-element topic="Ansible.md"/>
-    <toc-element topic="Bootstrap-Ubuntu.md"/>
     <toc-element topic="Cloud-Services-Comparison.md"/>
     <toc-element toc-title="AI">
         <toc-element topic="AI-Types.md"/>
@@ -159,6 +157,7 @@
                 <toc-element topic="Risk-Assessment-Metrics.md"/>
                 <toc-element topic="Types-of-Cloud-Deployments.md"/>
             </toc-element>
+            <toc-element topic="Ansible.md"/>
             <toc-element topic="Ansible1.md"/>
             <toc-element topic="C-Sharp.md"/>
             <toc-element topic="DOM.md"/>
@@ -192,6 +191,12 @@
         <toc-element topic="K8s-Upgrade-Minor-Version.md"/>
         <toc-element topic="MetalLB-Load-Balancer.md"/>
         <toc-element topic="Secure-Containers.md"/>
+    </toc-element>
+    <toc-element toc-title="Ubuntu">
+        <toc-element topic="Bootstrap-Ubuntu.md"/>
+        <toc-element topic="Get-external-IP-on-Linux.md"/>
+        <toc-element topic="List-files-installed-by-a-package.md"/>
+        <toc-element topic="Sync-directories-via-rsync-ssh.md"/>
     </toc-element>
     <toc-element topic="Scratchpad.md"/>
 </instance-profile>
