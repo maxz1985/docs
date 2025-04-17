@@ -124,6 +124,7 @@
         <toc-element topic="Glossary.md"/>
     </toc-element>
     <toc-element toc-title="GCP">
+        <toc-element topic="Add-SSH-key-to-instance.md"/>
         <toc-element topic="Configure-GCP-Access.md"/>
     </toc-element>
     <toc-element toc-title="Rocky Linux">
