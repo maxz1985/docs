@@ -154,7 +154,7 @@ This message shows that your installation appears to be working correctly.
     </tab>
     <tab id="macos-install3" title="macOS">
         <p>Download <code>Google Cloud CLI</code> <a href="https://cloud.google.com/sdk/docs/install">for your Mac platform</a>.</p>
-        <p>Place the file into your <code>$HOME</code>directory.</p> 
+        <p>Place the file into your <code>$HOME</code> directory.</p> 
         <code-block lang="bash"> tar -zxvf google-cloud-cli-darwin-x86_64.tar.gz </code-block>
         <code-block lang="bash"> ./google-cloud-sdk/install.sh</code-block>
     </tab>
