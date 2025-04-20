@@ -1,5 +1,23 @@
 # Configure GCP Access
+> In secure environments, switch `WSL` networking mode to `Mirrored` to avoid TLS certificate errors.
+> 
+{style="note"}
 
+> In secure environments, configure `APT` to ignore TLS certificate errors.
+> ```bash
+> sudo su
+>```
+> ```Bash
+> touch /etc/apt/apt.conf.d/99verify-peer.conf
+> ```
+> ```Bash
+> echo >>/etc/apt/apt.conf.d/99verify-peer.conf "Acquire {https::Verify-Peer false }"
+>```
+> ```Bash
+> exit
+>```
+> 
+{style="note"}
 ## Install `terraform`
 <tabs>
     <tab id="windows-install" title="Windows">
@@ -159,20 +177,25 @@ This message shows that your installation appears to be working correctly.
         <code-block lang="bash"> ./google-cloud-sdk/install.sh</code-block>
     </tab>
     <tab id="linux-install3" title="Linux">
+        <code-block lang="bash">sudo apt-get install apt-transport-https ca-certificates gnupg curl -y</code-block>
         <code-block lang="bash">curl -k https://packages.cloud.google.com/apt/doc/apt-key.gpg | \
-sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg</code-block>
+sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
+        </code-block>
+        <code-block lang="bash">echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | \
+sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+        </code-block>
+        <code-block lang="bash">sudo apt-get update && sudo apt-get install google-cloud-cli</code-block>
     </tab>
 </tabs>
-
+> In secure environments, configure `gcloud` to ignore TLS certificate errors.
+> ```bash
+>gcloud config set auth/disable_ssl_validation  True
+> ```
+>
+> {style="note"}
 
 
 ## Configure `gcloud` CLI
-
-> In some environments, you need to use a **specific** browser where you work with GCP to authorize `gcloud` for your account.
-> 
-> Therefore, it is best to use the `--console-only` option and perform the browser part of the authorization manually.
-> 
-{style="note"}
 
 ```Bash
 gcloud init --console-only
