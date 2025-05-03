@@ -126,6 +126,7 @@
     <toc-element toc-title="GCP">
         <toc-element topic="Add-SSH-key-to-instance.md"/>
         <toc-element topic="Configure-GCP-Access.md"/>
+        <toc-element topic="Mount-GCP-Bucket-as-a-File-System.md"/>
     </toc-element>
     <toc-element toc-title="Rocky Linux">
         <toc-element topic="bashExtractFileNameExt.md"/>
