@@ -181,6 +181,7 @@
         <toc-element topic="Debugging-Flask-in-Jetbrains.md"/>
         <toc-element topic="Fix-PHP-Memory-Exhausted-InterServer.md"/>
         <toc-element topic="Interserver-Remove-Offending-Plug-in.md"/>
+        <toc-element topic="NordVPN-IPsec.md"/>
         <toc-element topic="Upgrade-Windows-11-On-Unsupported-Hardware.md"/>
     </toc-element>
     <toc-element toc-title="Kubernetes">
