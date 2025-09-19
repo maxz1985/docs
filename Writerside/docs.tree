@@ -5,6 +5,7 @@
 <instance-profile id="docs" name="Documentation"
                   start-page="MZ-Docs-Staring-Page.topic">
 
+    <toc-element topic="RHEL.md"/>
     <toc-element topic="MZ-Docs-Staring-Page.topic"/>
     <toc-element topic="Keyboard-Shortcuts.md"/>
     <toc-element topic="Cloud-Services-Comparison.md"/>
