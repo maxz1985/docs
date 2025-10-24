@@ -25,7 +25,7 @@ env:
     # Add the variable below to upload Algolia indexes
     # Replace HI with the ID of the instance in capital letters
     ALGOLIA_ARTIFACT: algolia-indexes-DOCS.zip
-    ALGOLIA_APP_NAME: EIQLZJYNQ3
+    ALGOLIA_APP_NAME: 1XDKRQ1INV
     ALGOLIA_INDEX_NAME: mz-docs-index
     ALGOLIA_KEY: ${{ secrets.ALGOLIA_KEY }}
     # The 2 variables below SHOULD BE SINGLE-QUOTED
