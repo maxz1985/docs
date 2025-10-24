@@ -5,7 +5,7 @@
         <header-logo>mz-logo.png</header-logo>
         <product-web-url>https://maxz1985.github.io/docs/</product-web-url>
         <algolia-id>1XDKRQ1INV</algolia-id>
-        <algolia-index>mz-docs-index</algolia-index>
+        <algolia-index>my_docs_index</algolia-index>
         <algolia-api-key>fb903c9c6ae84ea6b5e057638d1d0cae</algolia-api-key>
         <algolia-show-logo>true</algolia-show-logo>
         <web-root>https://some.domain</web-root>
