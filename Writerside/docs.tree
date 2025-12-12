@@ -203,4 +203,5 @@
         <toc-element topic="Sync-directories-via-rsync-ssh.md"/>
     </toc-element>
     <toc-element topic="Scratchpad.md"/>
+    <toc-element topic="General-Documentation-Guidelines.md"/>
 </instance-profile>
