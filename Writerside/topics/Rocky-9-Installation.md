@@ -18,9 +18,10 @@ sudo dnf upgrade --refresh -y
 ```
 Install additional packages
 ```Shell
-sudo dnf install git vim traceroute tcpdump bind-utils mtr htop btop fzf zsh -y
+sudo dnf install dnf-automatic git vim traceroute tcpdump bind-utils mtr htop btop fzf -y
 ```
 ### Packages
+* dnf-automatic
 * git
 * vim
 * traceroute
@@ -30,7 +31,6 @@ sudo dnf install git vim traceroute tcpdump bind-utils mtr htop btop fzf zsh -y
 * btop
 * htop
 * fzf
-* zsh
 * https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
 
 ## Install AWS SSM Agent if required
@@ -135,3 +135,29 @@ Add the following line
         </code-block>
     </tab>  
 </tabs>
+
+## Enable Automatic Updates
+```bash
+sudo vi /etc/dnf/automatic.conf
+```
+*Update* the following settings to match
+```ini
+[commands]
+apply_updates = yes
+random_sleep = 360
+
+[emitters]
+emit_via = motd
+```
+Enable service
+```bash
+sudo systemctl enable --now dnf-automatic.timer
+```
+Check status
+```Bash
+systemctl list-timers | grep dnf
+```
+Verify logs
+```Bash
+journalctl -u dnf-automatic
+```
