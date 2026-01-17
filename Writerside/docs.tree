@@ -204,4 +204,5 @@
     </toc-element>
     <toc-element topic="Scratchpad.md"/>
     <toc-element topic="General-Documentation-Guidelines.md"/>
+    <toc-element topic="Remote-Desktop-Rocky-Linux-9.md"/>
 </instance-profile>
