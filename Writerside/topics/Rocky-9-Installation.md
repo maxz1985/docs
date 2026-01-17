@@ -1,5 +1,71 @@
 # Rocky 9 Installation
 
+## Install OpenSSH
+Install OpenSSH
+```Bash
+sudo dnf install openssh-server -y
+```
+Enable password authentication
+```Bash
+ sudo vi /etc/ssh/sshd_config
+```
+Change `PasswordAuthentication` to `yes`
+```Bash
+PasswordAuthentication yes
+```
+Start OpenSSH service
+```Bash
+sudo systemctl start sshd
+```
+Enable OpenSSH service and get status
+```Bash
+sudo systemctl enable sshd
+```
+```Bash
+sudo systemctl status sshd
+```
+## Set Static IP address
+List existing connections:
+```Bash
+nmcli connection show
+```
+```Bash
+enp0s25  bbb4a89f-b419-31d0-852d-3a1efdcb7f1c  ethernet  enp0s25
+lo       7853dbec-320c-41f6-b54d-91e7a03af08e  loopback  lo
+```
+Note the connection name  - `enp0s25`
+
+List the connection's IP address
+```Bash
+ip addr show enp0s25
+```
+```Bash
+2: enp0s25: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether xx:xx:xx:xx:xx:xx brd xx:xx:xx:xx:xx:xx
+    inet 192.168.1.36/24 brd 192.168.1.255 scope global dynamic noprefixroute enp0s25
+       valid_lft 85794sec preferred_lft 85794sec
+    inet6 xxxx::xxxx:xxxx:xxxx:xxxx/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever
+```
+Set the desired static IP
+```Bash
+sudo nmcli connection modify "enp0s25" \
+  ipv4.method manual \
+  ipv4.addresses 10.70.1.22/24 \
+  ipv4.gateway 10.70.1.1 \
+  ipv4.dns "1.1.1.1 8.8.8.8"
+```
+If you're connected via `ssh`
+```
+sudo reboot
+```
+If you're on a console, instead of reboot you can do
+```Bash
+nmcli connection down "enp0s25"
+nmcli connection up "enp0s25"
+```
+## Passwordless sudo (for DEV or LAB workstations)
+
 ## Package List
 
 ### Commands
@@ -18,19 +84,21 @@ sudo dnf upgrade --refresh -y
 ```
 Install additional packages
 ```Shell
-sudo dnf install dnf-automatic git vim traceroute tcpdump bind-utils mtr htop btop fzf -y
+sudo dnf install bind-utils btop dnf-automatic fzf git htop mtr openssh-server tcpdump traceroute unzip vim -y
 ```
 ### Packages
-* dnf-automatic
-* git
-* vim
-* traceroute
-* tcpdump
 * bind-utils
-* mtr
 * btop
-* htop
+* dnf-automatic
 * fzf
+* git
+* htop
+* mtr
+* openssh-server
+* tcpdump
+* traceroute
+* unzip
+* vim
 * https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
 
 ## Install AWS SSM Agent if required
@@ -161,3 +229,4 @@ Verify logs
 ```Bash
 journalctl -u dnf-automatic
 ```
+
