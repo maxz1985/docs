@@ -68,21 +68,50 @@ No single tool satisfies all requirements today.
 * Windows RDP Client does not support HiDPI and dynamic resize
 
 ### Installation
-
+```Bash
+sudo dnf groupinstall -y "Server with GUI"
+```
+```Bash
+sudo reboot
+```
+```Bash
+sudo vi /etc/gdm/custom.conf
+```
+Uncomment or add
+```Bash
+[daemon]
+WaylandEnable=false
+DefaultSession=gnome-xorg.desktop
+```
+Save, then reboot.
 ```bash
 sudo dnf install -y xrdp xorgxrdp
+```
+```Bash
 sudo systemctl enable --now xrdp
 ```
-
 ### Firewall
-
 ```bash
 sudo firewall-cmd --permanent --add-port=3389/tcp
+```
+```Bash
 sudo firewall-cmd --reload
 ```
-
----
-
+### Tell xrdp which desktop session to start
+```Bash
+vi ~/.xsession
+```
+Put the following
+```Bash
+exec gnome-session
+```
+```Bash
+chmod +x ~/.xsession
+```
+```Bash
+sudo systemctl restart xrdp
+```
+Connect via RDP client
 ## TigerVNC: HiDPI-Correct Desktop for Windows
 
 ### Why VNC?

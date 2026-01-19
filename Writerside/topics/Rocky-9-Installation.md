@@ -24,6 +24,20 @@ sudo systemctl enable sshd
 ```Bash
 sudo systemctl status sshd
 ```
+### Set SSH sessions to never expire
+```bash
+sudo vi /etc/ssh/sshd_config
+```
+Ensure these lines exist and not commented out
+```Bash
+TCPKeepAlive yes
+ClientAliveInterval 0
+ClientAliveCountMax 0
+```
+Reload `sshd`
+```Bash
+sudo systemctl reload sshd
+```
 
 ## Set Static IP address
 List existing connections:
@@ -204,21 +218,38 @@ if [ -f "$HOME/dotfiles/linux/bash/.bashrc" ]; then
 fi
 ```
 
+## Enable Remote Access XRDP and VNC
+[](Remote-Desktop-Rocky-Linux-9.md)
 
-## Install and enable XRDP
-```Shell
-sudo dnf install xrdp
+## (Optional) Enable Cockpit
+```Bash
+sudo dnf install -y cockpit
 ```
 ```Shell
-sudo firewall-cmd --permanent --add-port=3389/tcp
+sudo systemctl enable --now cockpit.socket
 ```
-```Shell
+```Bash
+systemctl status cockpit.socket
+```
+```Bash
+sudo firewall-cmd --add-service=cockpit --permanent
+```
+```Bash
 sudo firewall-cmd --reload
 ```
-```Shell
-sudo systemctl enable --now xrdp
+Cockpit listens on TCP `9090`
+```Bash
+https://<rocky-ip>:9090
 ```
-Reboot the system.
+Install useful modules
+```Bash
+sudo dnf install -y \
+  cockpit-machines \
+  cockpit-podman \
+  cockpit-storaged \
+  cockpit-packagekit \
+  cockpit-networkmanager
+```
 
 ## (Optional) Change shell to `zsh` for current user and root
 ```Shell
@@ -281,7 +312,6 @@ Add the following line
     </tab>  
 </tabs>
 
-## (Optional) Enable Cockpit 
-```Shell
-sudo systemctl enable --now cockpit.socket
+```Bash
+sudo ethtool -K enp0s25 tso off gso off gro off tx off rx off
 ```
