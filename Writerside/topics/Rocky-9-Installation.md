@@ -24,6 +24,7 @@ sudo systemctl enable sshd
 ```Bash
 sudo systemctl status sshd
 ```
+
 ## Set Static IP address
 List existing connections:
 ```Bash
@@ -64,12 +65,42 @@ If you're on a console, instead of reboot you can do
 nmcli connection down "enp0s25"
 nmcli connection up "enp0s25"
 ```
+
+## Copy SSH key to Rocky9
+From a machine with an SSH key,
+```Bash
+ssh-copy-id -i ~/.ssh/{your_key_name}.pub youruser@rockyIP
+```
+
 ## Passwordless sudo (for DEV or LAB workstations)
+Become root
+```bash
+sudo -i 
+```
+Create `sudoers` file for your user
+```Bash
+visudo -f /etc/sudoers.d/{youruser}
+```
+Add the following line
+```Bash
+youruser ALL=(ALL) NOPASSWD:ALL
+```
+Set correct permissions
+```Bash
+chmod 440 /etc/sudoers.d/{youruser}
+```
+Exit root and test sudo from your user
+```Bash
+exit
+```
+```Bash
+sudo whoami
+```
+It should respond with `root`.
 
 ## Package List
 
 ### Commands
-
 Activate `epel` extras repository
 ```Shell
 sudo dnf install epel-release -y
@@ -86,6 +117,7 @@ Install additional packages
 ```Shell
 sudo dnf install bind-utils btop dnf-automatic fzf git htop mtr openssh-server tcpdump traceroute unzip vim -y
 ```
+
 ### Packages
 * bind-utils
 * btop
@@ -105,35 +137,32 @@ sudo dnf install bind-utils btop dnf-automatic fzf git htop mtr openssh-server t
 ```Shell
 sudo dnf install https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm -y
 ```
+## Enable Automatic Updates
+```bash
+sudo vi /etc/dnf/automatic.conf
+```
+*Update* the following settings to match
+```ini
+[commands]
+apply_updates = yes
+random_sleep = 360
 
-## Enable Cockpit
-```Shell
-sudo systemctl enable --now cockpit.socket
+[emitters]
+emit_via = motd
+```
+Enable service
+```bash
+sudo systemctl enable --now dnf-automatic.timer
+```
+Check status
+```Bash
+systemctl list-timers | grep dnf
+```
+Verify logs
+```Bash
+journalctl -u dnf-automatic
 ```
 
-## Install and enable XRDP
-```Shell
-sudo dnf install xrdp
-```
-```Shell
-sudo firewall-cmd --permanent --add-port=3389/tcp
-```
-```Shell
-sudo firewall-cmd --reload
-```
-```Shell
-sudo systemctl enable --now xrdp
-```
-Reboot the system.
-
-## Change shell to `zsh` for current user and root
-```Shell
-chsh -s $(which zsh)
-```
-And for root
-```Shell
-sudo chsh -s $(which zsh)
-```
 ## Install nerd fonts
 Clone the repo
 ```Shell
@@ -152,7 +181,55 @@ Install font
 ```Shell
 ./install.sh Meslo
 ```
-## Install ohMyZsh
+
+## Install and configure `oh-my-posh`
+Install `oh-my-posh`
+```Bash
+curl -s https://ohmyposh.dev/install.sh | bash -s
+```
+Clone `dotfiles` repo. From your `$HOME` directory:
+```Bash
+git clone https://github.com/maxz1985/dotfiles.git
+```
+Source the `dotfiles` `bashrc`
+```Bash
+vi .bashrc
+```
+Add the following at the end of `.bashrc`
+```Bash
+# --- User dotfiles (cross-platform) ---
+if [ -f "$HOME/dotfiles/linux/bash/.bashrc" ]; then
+    # shellcheck disable=SC1091
+    source "$HOME/dotfiles/linux/bash/.bashrc"
+fi
+```
+
+
+## Install and enable XRDP
+```Shell
+sudo dnf install xrdp
+```
+```Shell
+sudo firewall-cmd --permanent --add-port=3389/tcp
+```
+```Shell
+sudo firewall-cmd --reload
+```
+```Shell
+sudo systemctl enable --now xrdp
+```
+Reboot the system.
+
+## (Optional) Change shell to `zsh` for current user and root
+```Shell
+chsh -s $(which zsh)
+```
+And for root
+```Shell
+sudo chsh -s $(which zsh)
+```
+
+## (Legacy) Install ohMyZsh
 ```Shell
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
@@ -184,7 +261,7 @@ typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=49
 typeset -g POWERLEVEL9K_OS_ICON_BACKGROUND=8
 ```
 
-## Enable `fzf` keybindings
+## (Legacy, part of `dotfiles` now) Enable `fzf` keybindings
 ```Shell
 vi .zshrc
 ```
@@ -204,29 +281,7 @@ Add the following line
     </tab>  
 </tabs>
 
-## Enable Automatic Updates
-```bash
-sudo vi /etc/dnf/automatic.conf
+## (Optional) Enable Cockpit 
+```Shell
+sudo systemctl enable --now cockpit.socket
 ```
-*Update* the following settings to match
-```ini
-[commands]
-apply_updates = yes
-random_sleep = 360
-
-[emitters]
-emit_via = motd
-```
-Enable service
-```bash
-sudo systemctl enable --now dnf-automatic.timer
-```
-Check status
-```Bash
-systemctl list-timers | grep dnf
-```
-Verify logs
-```Bash
-journalctl -u dnf-automatic
-```
-

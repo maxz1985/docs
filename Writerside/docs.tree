@@ -134,6 +134,7 @@
         <toc-element topic="List-File-Octal-Permissions.md"/>
         <toc-element topic="Rocky8-KVM-GPU-Passthrough.md"/>
         <toc-element topic="Rocky-9-Installation.md"/>
+        <toc-element topic="Remote-Desktop-Rocky-Linux-9.md"/>
         <toc-element topic="Rocky9-Install-Legacy-Storage-Drivers.md"/>
         <toc-element topic="Switching-to-another-user-s-context.md"/>
         <toc-element topic="TMUX-quick-reference.md"/>
@@ -204,5 +205,4 @@
     </toc-element>
     <toc-element topic="Scratchpad.md"/>
     <toc-element topic="General-Documentation-Guidelines.md"/>
-    <toc-element topic="Remote-Desktop-Rocky-Linux-9.md"/>
 </instance-profile>
