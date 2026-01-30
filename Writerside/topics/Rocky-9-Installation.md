@@ -315,3 +315,16 @@ Add the following line
 ```Bash
 sudo ethtool -K enp0s25 tso off gso off gro off tx off rx off
 ```
+## Updating OhMyPosh
+### Windows
+```Bash
+winget upgrade JanDeDobbeleer.OhMyPosh
+```
+### macOS
+```Bash
+brew upgrade oh-my-posh
+```
+### Linux
+```Bash
+curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin
+```
